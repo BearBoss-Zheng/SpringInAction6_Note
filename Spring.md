@@ -72,7 +72,7 @@ public class TacoCloudApplication {
 
 `@SpringBootApplication` is a composite annotation that combines the following three annotations:
 
-* `@SpringBootConfiguration`----Designates this class as a configuration class.Although there’s not much configuration in the class yet, you can add Javabased Spring Framework configuration to this class if you need to. This annotation is, in fact, ==a specialized form of the `@Configuration` annotation==.
+* `@SpringBootConfiguration`----Designates this class as a configuration class.Although there’s not much configuration in the class yet, you can add Javabased Spring Framework configuration to this class if you need to. This annotation is, in fact, ==a specialized form of the `@Configuration` annotation==.
 * `@EnableAutoConfiguration`---Enables Spring Boot automatic configuration.We’ll talk more about autoconfiguration later. For now, know that this annotation tells Spring Boot to automatically configure any components that it thinksyou’ll need.
 * `@ComponentScan`---Enables component scanning. This lets you declare otherclasses with annotations like `@Component`, `@Controller`, and `@Service` to have Spring automatically discover and register them as components in the Spring application context.
 
@@ -80,7 +80,7 @@ public class TacoCloudApplication {
 
 Manual testing implies that there’s a human involved and thus potential for human error and inconsistent testing. Automated tests are more consistent and repeatable.
 
-Recognizing this, the Spring Initializr gives you a test class to get started. The following listing shows the baseline test class.
+Recognizing this, the Spring Initializr gives you a test class to get started. The following listing shows the baseline test class.
 
 ```java
 package sia.tacocloud;
@@ -131,7 +131,7 @@ public class HomeController {
 
 `@GetMapping`--- The home() annotated with `@GetMapping` to indicate that if an HTTP GET request is received for the root path /, then this method should handle that request. It does so by doing nothing more than ==returning a `String` value of `home`==. This value is interpreted as the logical name of a view.
 
-The template name is derived from the logical view name by prefixing it with /templates/ and postfixing it with .html. The resulting path for the template is /templates/home.html.
+The template name is derived from the logical view name by prefixing it with /templates/ and postfixing it with .html. The resulting path for the template is /templates/home.html.
 
 > Why Thymeleaf?
 >
@@ -191,7 +191,7 @@ public class HomeControllerTest {
 
 ### 1.3.2 Getting to know Spring Boot DevTools
 
-As its name suggests, DevTools provides Spring developers with some handy development-time tools. Among those are the following:
+As its name suggests, DevTools provides Spring developers with some handy development-time tools. Among those are the following:
 
 * Automatic application restart when code changes
 * Automatic browser refresh when browser-destined resources (such as templates,JavaScript, stylesheets, and so on) change
@@ -234,7 +234,7 @@ What is Spring doing behind the scenes to make sure your application needs are m
 
 
 
-In the pom.xml file, you declared a dependency on the Web and Thymeleaf starters. These two dependencies transitively brought in a handful of other dependencies,including the following:
+In the pom.xml file, you declared a dependency on the Web and Thymeleaf starters. These two dependencies transitively brought in a handful of other dependencies,including the following:
 
 1. Spring’s MVC framework
 2. Embedded Tomcat
@@ -262,7 +262,7 @@ The core Spring Framework is the foundation of everything else in the Spring uni
 
 In addition to starter dependencies and autoconfiguration,Spring Boot also offers the following other useful features:
 
-1. The Actuator provides runtime insight into the inner workings of an application, including metrics, thread dump information, application health, and environment properties available to the application.
+1. The Actuator provides runtime insight into the inner workings of an application, including metrics, thread dump information, application health, and environment properties available to the application.
 2. Flexible specification of environment properties.
 3. Additional testing support on top of the testing assistance found in the core framework.
 
@@ -291,8 +291,8 @@ For a complete discussion of Spring Cloud, I suggest taking a look at Cloud Nati
 
 ### 1.4.7 Spring Native
 
-A relatively new development in Spring is the Spring Native project. This experimental project enables compilation of Spring Boot projects into native executables using the GraalVM native-image compiler, resulting in images that start significantly faster and have a lighter footprint.
-For more information on Spring Native, see https://github.com/spring-projectsexperimental/spring-native
+A relatively new development in Spring is the Spring Native project. This experimental project enables compilation of Spring Boot projects into native executables using the GraalVM native-image compiler, resulting in images that start significantly faster and have a lighter footprint.
+For more information on Spring Native, see https://github.com/spring-projects experimental/spring-native
 
 ## 1.5 Summary 
 
