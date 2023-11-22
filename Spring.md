@@ -301,7 +301,7 @@ For more information on Spring Native, see https://github.com/spring-projects ex
 3. Spring applications can be initialized using the Spring Initializr, which is webbased and ==supported natively in most Java development environments==.
 4. The components, commonly referred to as beans, in a Spring application context can be declared explicitly with Java or XML, discovered by component scanning, or automatically configured with Spring Boot autoconfigurations.
 
-
+# 2 Developing Web Application
 
 
 
