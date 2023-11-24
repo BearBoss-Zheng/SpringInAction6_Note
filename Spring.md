@@ -715,7 +715,7 @@ processTaco() finishes by returning aString value.The value returned indicates a
 >    * The URL specified with the "redirect:" prefix is sent to the browser, and the browser then makes a new GET request to that URL.
 >    * This is useful when you want to completely change the URL in the user's browser and perform a new, separate request.
 >    * It's commonly used after processing a form submission to prevent users from accidentally resubmitting the form when they refresh the page.
-> 2. **Forwarding to Another View (`successView`):==generate only one request==
+> 2. Forwarding to Another View (`successView`):==generate only one request==
 >    - In a forward, the request is internally forwarded to another view within the same request.
 >    - The URL in the browser's address bar doesn't change; it remains the URL of the original request.
 >    - This is useful when you want to reuse the existing request and simply render a different view based on the same request.
@@ -1077,15 +1077,381 @@ spring.thymeleaf.cache=false
 5. View controllers can be registered with `addViewController` in a `WebMvcConfigurer` class to handle HTTP GET requests for which no model data or processing is required.
 6. In addition to Thymeleaf, Spring supports a variety of view options, including FreeMarker, Groovy templates, and Mustache.
 
-# 3 Working with data
+# 3 Working with data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+
+Spring JDBC support is rooted in the `JdbcTemplate` class. JdbcTemplate provides a means by which developers can perform SQL operations against a relational database without all the ceremony and boilerplate typically required when working with JDBC.
+
+## 3.1.Reading and writing data with JDBC
+
+### 3.1.1 Working with JdbcTemplate
+
+Before you can start using JdbcTemplate, you need to add it to your project classpath.
+
+```xml
+<dependency>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-starter-jdbc</artifactId>
+</dependency>
+```
+
+```java
+package tacos.data;
+
+import tacos.Ingredient;
+
+import java.util.Optional;
+
+public interface IngredientRepository {
+
+    Iterable<Ingredient> findAll();
+
+    Optional<Ingredient> findById(String id);
+
+    Ingredient save(Ingredient ingredient);
+
+}
+```
 
 
 
+```java
+package tacos.data;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+import tacos.Ingredient;
+
+import java.util.Optional;
+
+@Repository
+public class JdbcIngredientRepository implements IngredientRepository{
+
+    private JdbcTemplate jdbcTemplate;
+
+    public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+    
+.....
+}
+```
+
+`@Repository` --- By annotating with `@Repository`, you declare that it should be automatically discovered by Spring component scanning and instantiated as a bean in the Spring application context.
+
+When Spring creates the JdbcIngredientRepository bean, it injects it with JdbcTemplate. That’s because when there’s only one constructor, ==Spring implicitly applies autowiring of dependencies through that constructor’s parameters==.If there is more than one constructor, or if you just want autowiring to be explicitly stated, then you
+can annotate the constructor with @Autowired as follows:
+
+```java
+@Autowired
+public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) {
+ 	this.jdbcTemplate = jdbcTemplate;
+}
+```
+
+### 3.1.2  Defining a schema and preloading data
+
+![image-20231123212203016](Spring.assets/image-20231123212203016.png)
+
+### 3.1.4 Inserting data
+
+The id property on the Taco_Order table is an identity, meaning that the database will determine the value
+automatically. But if the database determines the value for you, then you will need to know what that value is so that it can be returned in the TacoOrder object returned from the save() method.Fortunately, Spring offers a helpful `GeneratedKeyHolder` type that can help with that. But it involves working with a prepared statement, as shown in the following implementation of the save() method:
+
+```java
+@Override
+  @Transactional
+  public TacoOrder save(TacoOrder order) {
+    PreparedStatementCreatorFactory pscf =
+      new PreparedStatementCreatorFactory(
+        "insert into Taco_Order "
+        + "(delivery_name, delivery_street, delivery_city, "
+        + "delivery_state, delivery_zip, cc_number, "
+        + "cc_expiration, cc_cvv, placed_at) "
+        + "values (?,?,?,?,?,?,?,?,?)",
+        Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
+        Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
+        Types.VARCHAR, Types.VARCHAR, Types.TIMESTAMP
+    );
+    pscf.setReturnGeneratedKeys(true);
+
+    order.setPlacedAt(new Date());
+    PreparedStatementCreator psc =
+        pscf.newPreparedStatementCreator(
+            Arrays.asList(
+                order.getDeliveryName(),
+                order.getDeliveryStreet(),
+                order.getDeliveryCity(),
+                order.getDeliveryState(),
+                order.getDeliveryZip(),
+                order.getCcNumber(),
+                order.getCcExpiration(),
+                order.getCcCVV(),
+                order.getPlacedAt()));
+
+    GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+    jdbcOperations.update(psc, keyHolder);
+    long orderId = keyHolder.getKey().longValue();
+    order.setId(orderId);
+
+    List<Taco> tacos = order.getTacos();
+    int i=0;
+    for (Taco taco : tacos) {
+      saveTaco(orderId, i++, taco);
+    }
+
+    return order;
+  }
+```
+
+The purpose of `pscf.setReturnGeneratedKeys(true)` is to instruct Spring JDBC to return the primary key generated by the database after executing an SQL insert operation. In this method, the primary key is generated automatically by the database through auto-increment.
+
+If `setReturnGeneratedKeys(true)` is not used, `GeneratedKeyHolder` won't capture any information about the generated primary key. By default, `GeneratedKeyHolder` does not store any generated key information. Enabling this feature with `setReturnGeneratedKeys(true)` allows `GeneratedKeyHolder` to capture the generated primary key value after inserting the record.
+
+In this specific example, `GeneratedKeyHolder` is used to store the generated primary key value ( `orderId` ) after inserting into the `Taco_Order` table. Then, `keyHolder.getKey().longValue()` is used to retrieve this value, which is then set to `order.setId(orderId)`, ensuring that the `order` object contains the primary key value generated after the insert operation.
+
+## 3.2 Working with Spring Data JDBC
+
+The Spring Data project is a rather large umbrella project comprising several subprojects, most of which are focused on data persistence with a variety of different database types. A few of the most popular Spring Data projects include these:
+
+1. Spring Data JDBC—JDBC persistence against a relational database
+2. Spring Data JPA—JPA persistence against a relational database
+3. Spring Data MongoDB—Persistence to a Mongo document database
+4. Spring Data Neo4j—Persistence to a Neo4j graph database
+5. Spring Data Redis—Persistence to a Redis key-value store
+6. Spring Data Cassandra—Persistence to a Cassandra column store database
+
+```java
+package tacos.data;
+
+import org.springframework.data.repository.CrudRepository;
+
+import tacos.Ingredient;
+
+public interface IngredientRepository 
+         extends CrudRepository<Ingredient, String> {
+
+}
+```
+
+```java
+package tacos.data;
+
+import org.springframework.data.repository.CrudRepository;
+
+import tacos.TacoOrder;
+
+public interface OrderRepository 
+         extends CrudRepository<TacoOrder, Long> {
+
+}
+```
+
+Spring Data automatically creates implementations of these interfaces at run time, you no longer need the explicit implementations in JdbcIngredientRepository and JdbcOrderRepository.
+
+We’ll need to do is annotate our domain classes so that Spring Data JDBC will know how to persist them. Generally speaking, this means annotating the identity properties with `@Id`—so that Spring Data will know which field represents the object’s identity—and optionally annotating the class with `@Table`.
+
+```java
+@Data
+@Table
+public class TacoOrder implements Serializable {
+    
+ 	private static final long serialVersionUID = 1L;
+    
+ 	@Id
+ 	private Long id;
+    
+ 	// ...
+}
+```
+
+`@Table` ---  The object is mapped to a table based on the domain class name. If you’d prefer to map it to a different table name, then you can specify the table name as a parameter to @Table like this:
+
+```JAVA
+@Table("Taco_Cloud_Order")
+public class TacoOrder {
+ ...
+}
+```
+
+`@Id` ---  It designates the id property as being the identity for a TacoOrder
+
+`@Column` --- Explicitly define the column name mapping
+
+```java
+@Column("customer_name")
+@NotBlank(message="Delivery name is required")
+private String deliveryName;
+```
+
+## 3.3 Persisting data with Spring Data JPA
+
+Whereas Spring Data JDBC makes easy work of persisting data, the Java Persistence API (JPA) is another popular option for working with data in a relational database.Spring Data JPA offers an approach to persistence with JPA similar to what Spring Data JDBC gave us for JDBC.
+
+### 3.3.1 Adding Spring Data JPA to the project
+
+```xml
+<dependency>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+
+### 3.3.2 Annotating the domain as entities
+
+```java
+package tacos;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Data
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PRIVATE,force = true)
+public class Ingredient {
+    @Id
+    private final String id;
+    private final String name;
+    private final Type type;
+
+    public enum Type{
+        WRAP,PROTEIN,VEGGIES,CHEESE,SAUCE
+    }
+}
+```
+
+To declare this as a JPA entity, Ingredient must be annotated with `@Entity`. And its `id` property must be annotated with `@Id` to designate it as the property that will uniquely identify the entity in the database. Note that this `@Id` annotation is the JPA variety from the `javax.persistence package`, as opposed to the `@Id `provided by Spring Datain the `org.springframework.data.annotation` package.
+
+`@RequiredArgsConstructor` --- The `@Data` annotation implicitly adds a required arguments constructor, but when a `@NoArgsConstructor` is used, that constructor is removed. An explicit `@RequiredArgsConstructor` ensures that you’ll still have a required arguments constructor, in addition to the private noarguments constructor.
+
+```java
+package tacos;
+
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import java.util.Date;
+import java.util.List;
 
+@Data
+@Entity
+@RequiredArgsConstructor
+public class Taco {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    private Date createdAt = new Date();
+
+    @NotNull
+    @Size(min=5, message="Name must be at least 5 characters long")
+    private String name;
+
+
+    @Size(min=1, message="You must choose at least 1 ingredient")
+    @ManyToMany
+    private List<Ingredient> ingredients;
+}
+```
+
+Because you’re relying on the database to automatically generate the ID value, you also annotate the id property with `@GeneratedValue`, specifying a strategy of AUTO.
+
+`@ManyToMany` ---  To declare the relationship between a Taco and its associated Ingredient list.A Taco can have many Ingredient objects,and an Ingredient can be a part of many Tacos.
+
+```java
+public class TacoOrder implements Serializable{
+    ...
+    @OneToMany(cascade = CascadeType.ALL)
+ 	private List<Taco> tacos = new ArrayList<>();
+    
+    ...
+}
+```
+
+the cascade attribute is set to CascadeType.ALL so that if the order is deleted, its related tacos will also be deleted. 
+
+### 3.3.3 Declaring JPA repositories
+
+It's as same as Spring Data JDBC:
+
+```java
+package tacos.data;
+
+import org.springframework.data.repository.CrudRepository;
+
+import tacos.Ingredient;
+
+public interface IngredientRepository 
+         extends CrudRepository<Ingredient, String> {
+  
+}
+```
+
+```java
+package tacos.data;
+
+import org.springframework.data.repository.CrudRepository;
+
+import tacos.TacoOrder;
+
+public interface OrderRepository 
+         extends CrudRepository<TacoOrder, Long> {
+
+}
+
+```
+
+### 3.3.4  Customizing repositories
+
+When generating the repository implementation, Spring Data examines each method in the repository interface, parses the method name, and attempts to understand the method’s purpose in the context of the persisted object.
+
+Suppose that you need to query for all orders delivered to a given ZIP code within a given date range. In that case, the following method, when added to OrderRepository, might prove useful:
+
+```java
+List<TacoOrder> readOrdersByDeliveryZipAndPlacedAtBetween(
+ 	String deliveryZip, Date startDate, Date endDate);
+```
+
+As you can see, the verb in readOrdersByDeliveryZipAndPlacedAtBetween() is read. Spring Data also understands find, read, and get as synonymous for fetching one or more entities. Alternatively, you can also use count as the verb if you want the method to return only an int with the count of matching entities.
+
+![image-20231124005543545](Spring.assets/image-20231124005543545.png)
+
+Although the naming convention can be useful for relatively simple queries, it doesn’t take much imagination to see that method names could get out of hand for more complex queries. In that case, feel free to name the method anything you want and annotate it with @Query to explicitly specify the query to be performed when the
+
+method is called, as this example shows:
+
+```java
+@Query("Order o where o.deliveryCity='Seattle'")
+List<TacoOrder> readOrdersDeliveredInSeattle();
+```
+
+ Custom query methods also work with Spring Data JDBC but with the following
+
+key differences:
+
+1. All custom query methods require @Query. This is because, unlike JPA, there’s no mapping metadata to help Spring Data JDBC automatically infer the query from the method name.
+2. All queries specified in @Query must be SQL queries, not JPA queries.
+
+## 3.4 Summary
+
+1. Spring’s JdbcTemplate greatly simplifies working with JDBC.
+2. PreparedStatementCreator and KeyHolder can be used together when you need to know the value of a database-generated ID.
+3. Spring Data JDBC and Spring Data JPA make working with relational data as
+
+easy as writing a repository interface.
+
+# 4 Working with nonrelational data
 
 
 
