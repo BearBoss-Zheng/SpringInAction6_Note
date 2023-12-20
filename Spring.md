@@ -1,12 +1,12 @@
 # Spring
 
-# Part 1 Foundational Spring
+# Part 1 --- Foundational Spring
 
-# 1 Getting started with Spring
+## 1 Getting started with Spring
 
-## 1.1 What is Spring
+### 1.1 What is Spring
 
-### 1.1.1 Spring application context
+1.1.1 Spring application context
 
 Spring offers a container, often referred to as the Spring application context, that creates and manages application components. These components, or beans,are wired together inside the Spring application context to make a complete application.
 
@@ -46,13 +46,13 @@ The @Configuration annotation indicates to Spring that this is a configuration c
 
 >  Java-based configuration offers several benefits,including ==greater type safety and improved refactorability.==
 
-### 1.1.2 Dependency injection
+#### 1.1.2 Dependency injection
 
 DI is a design pattern where the dependencies (i.e., other objects or services) required by a component are provided to it, rather than the component creating or managing those dependencies itself. 
 
-## 1.2 Initializing a Spring application
+### 1.2 Initializing a Spring application
 
-### 1.2.1 bootstrap the application
+#### 1.2.1 bootstrap the application
 
 One of the most powerful lines of code is also one of the shortest.
 
@@ -78,7 +78,7 @@ public class TacoCloudApplication {
 * `@EnableAutoConfiguration`---Enables Spring Boot automatic configuration.We’ll talk more about autoconfiguration later. For now, know that this annotation tells Spring Boot to automatically configure any components that it thinksyou’ll need.
 * `@ComponentScan`---Enables component scanning. This lets you declare otherclasses with annotations like `@Component`, `@Controller`, and `@Service` to have Spring automatically discover and register them as components in the Spring application context.
 
-### 1.2.2 Testing The Application
+#### 1.2.2 Testing The Application
 
 Manual testing implies that there’s a human involved and thus potential for human error and inconsistent testing. Automated tests are more consistent and repeatable.
 
@@ -104,9 +104,9 @@ This test class does perform an essential check to ensure that the Spring applic
 
 `@SpringBootTest` is a compositeannotation, which is itself annotated with `@ExtendWith(SpringExtension.class)`, to add Spring testing capabilities to JUnit 5. 
 
-## 1.3 Writing a Spring application
+### 1.3 Writing a Spring application
 
-### 1.3.1 Handing web requests
+#### 1.3.1 Handing web requests
 
 In the context of web development, a request and a response are fundamental concepts in the communication between a client (typically a web browser) and a server.
 
@@ -191,7 +191,7 @@ public class HomeControllerTest {
 }
 ```
 
-### 1.3.2 Getting to know Spring Boot DevTools
+#### 1.3.2 Getting to know Spring Boot DevTools
 
 As its name suggests, DevTools provides Spring developers with some handy development-time tools. Among those are the following:
 
@@ -200,7 +200,7 @@ As its name suggests, DevTools provides Spring developers with some handy develo
 * Automatic disabling of template caches
 * Built in H2 Console, if the H2 database is in use
 
-### 1.3.3 How does application work
+#### 1.3.3 How does application work
 
 What is Spring doing behind the scenes to make sure your application needs are met? To understand what Spring is doing, let’s start by looking at the build specification.
 
@@ -250,9 +250,9 @@ It also brought Spring Boot’s autoconfiguration library along for the ride. Wh
 
 In short, ==autoconfiguration does all the grunt work==, leaving you to focus on writing code that implements your application functionality.
 
-## 1.4 Surverying the Spring landscape
+### 1.4 Surverying the Spring landscape
 
-### 1.4.1 The core Spring Framework
+#### 1.4.1 The core Spring Framework
 
 The core Spring Framework is the foundation of everything else in the Spring universe.It provides the ==core container and dependency== injection framework. But it also provides a few other essential features.
 
@@ -260,7 +260,7 @@ The core Spring Framework is the foundation of everything else in the Spring uni
 2. Offerring some elemental data persistence support,specifically, template-based JDBC support.
 3. Spring includes support for reactive-style programming, including a new reactive web framework called Spring WebFlux that borrows heavily from Spring MVC.
 
-### 1.4.2 Spring Boot
+#### 1.4.2 Spring Boot
 
 In addition to starter dependencies and autoconfiguration,Spring Boot also offers the following other useful features:
 
@@ -268,7 +268,7 @@ In addition to starter dependencies and autoconfiguration,Spring Boot also offer
 2. Flexible specification of environment properties.
 3. Additional testing support on top of the testing assistance found in the core framework.
 
-### 1.4.3 Spring Data
+#### 1.4.3 Spring Data
 
 Spring Data provides something quite amazing: the ability to define your application’s data repositories as simple Java interfaces, using a naming convention when defining methods to drive how data is stored and retrieved.
 
@@ -278,13 +278,13 @@ What’s more, Spring Data is capable of working with several different kinds of
 
 Spring Security addresses a broad range of application security needs, including authentication, authorization, and API security.
 
-### 1.4.5 Spring Integration and Spring Batch
+#### 1.4.5 Spring Integration and Spring Batch
 
 At some point, most applications will need to integrate with other applications or even with other components of the same application. Several patterns of application integration have emerged to address these needs. Spring Integration and Spring Batch provide the implementation of these patterns for Spring applications.
 
 Spring Integration addresses real-time integration where data is processed as it’s made available. In contrast, Spring Batch addresses batched integration where data is allowed to collect for a time until some trigger (perhaps a time trigger) signals that it’s time for the batch of data to be processed.
 
-### 1.4.6 Spring Cloud
+#### 1.4.6 Spring Cloud
 
 The application development world is entering a new era where we’ll no longer develop our applications as single-deployment, unit monoliths and will instead compose applications from several individual deployment units known as microservices.
 Microservices are a hot topic, addressing several practical development and runtime concerns. In doing so, however, they bring to fore their own challenges. Those challenges are met head-on by Spring Cloud, a collection of projects for developing cloud-native applications with Spring.
@@ -296,22 +296,22 @@ For a complete discussion of Spring Cloud, I suggest taking a look at Cloud Nati
 A relatively new development in Spring is the Spring Native project. This experimental project enables compilation of Spring Boot projects into native executables using the GraalVM native-image compiler, resulting in images that start significantly faster and have a lighter footprint.
 For more information on Spring Native, see https://github.com/spring-projects experimental/spring-native
 
-## 1.5 Summary 
+### 1.5 Summary 
 
 1. Spring aims to ==make developer challenges easy==, like creating web applications,working with databases, securing applications, and microservices.
 2. Spring Boot builds on top of Spring to make Spring even easier with ==simplified dependency management, automatic configuration, and runtime insights==.
 3. Spring applications can be initialized using the Spring Initializr, which is webbased and ==supported natively in most Java development environments==.
 4. The components, commonly referred to as beans, in a Spring application context can be declared explicitly with Java or XML, discovered by component scanning, or automatically configured with Spring Boot autoconfigurations.
 
-# 2 Developing Web Application
+## 2 Developing Web Application
 
-## 2.1 Displaying information
+### 2.1 Displaying information
 
 the typical Spring MVC request flow
 
 ![image-20231122191214540](Spring.assets/image-20231122191214540.png)
 
-### 2.1.1 Establishing the domain
+#### 2.1.1 Establishing the domain
 
 ```java
 package tacos;
@@ -341,7 +341,7 @@ To use Lombok, you can manually add it with the following entry in pom.xml:
 </dependency>
 ```
 
-If you decide to manually add Lombok to your build, you’ll also want to exclude it from the Spring Boot Maven plugin in the <build> section of the pom.xml file.The Spring Boot Maven plugin automatically includes some dependencies, and it might include Lombok by default. However, if you've manually added Lombok to your project, having it included again by the Spring Boot Maven plugin might lead to conflicts or unnecessary duplication.
+If you decide to manually add Lombok to your build, you’ll also want to exclude it from the Spring Boot Maven plugin in the <build> section of the pom.xml file.The Spring Boot Maven plugin automatically includes some dependencies, and it might include Lombok by default. However, ==if you've manually added Lombok to your project==, having it included again by the Spring Boot Maven plugin ==might lead to conflicts or unnecessary duplication==.
 
 ```xml
 <build>
@@ -405,9 +405,9 @@ public class TacoOrder {
 }
 ```
 
-### 2.1.2 creating a controller class
+#### 2.1.2 creating a controller class
 
-Controllers are the major players in Spring’s MVC framework. Their primary job is to handle HTTP requests and either hand off a request to a view to render HTML (browser-displayed) or write data directly to the body of a response (RESTful).
+==Controllers== are the major players in Spring’s MVC framework. Their primary job is to ==handle HTTP requests and either hand off a request to a view to render HTML (browser-displayed) or write data directly to the body of a response (RESTful)==.
 
 ```java
 package tacos.web;
@@ -543,7 +543,7 @@ public class DesignTacoController {
 
 > addIngredientsToModel
 
-### 2.1.3 Designing the view
+#### 2.1.3 Designing the view
 
 Thymeleaf are designed to be decoupled from any particular web framework. As such, they’re unaware of Spring’s model abstraction and are unable to work with the data that the controller places in Model. But they can work with ==servlet request attributes.==
 
@@ -643,7 +643,7 @@ Thymeleaf are designed to be decoupled from any particular web framework. As suc
 
 
 
-## 2.2 Processing form submission
+2.2 Processing form submission
 
  The `name` field on the form needs to capture only a simple textual value. Thus the `name` property of Taco is of type `String`.
 
@@ -871,7 +871,7 @@ public String processOrder(TacoOrder order,
 }
 ```
 
-## 2.3 Validating form input
+### 2.3 Validating form input
 
 The Validation API offers several annotations that can be placed on properties of domain objects to declare validation rules.If you prefer manually editing your build, the following entry in the Maven pom.xml file will do the trick:
 
@@ -882,7 +882,7 @@ The Validation API offers several annotations that can be placed on properties o
 </dependency>
 ```
 
-### 2.3.1 Declaring validation rules
+#### 2.3.1 Declaring validation rules
 
 ```java
 package tacos;
@@ -952,7 +952,7 @@ public class TacoOrder {
 }
 ```
 
-### 2.3.2 Performing validation at form binding
+#### 2.3.2 Performing validation at form binding
 
 ```java
 @PostMapping
@@ -990,7 +990,7 @@ If there are any validation errors, the details of those errors will be captured
   }
 ```
 
-### 2.3.3 Displaying vaildation errors
+#### 2.3.3 Displaying vaildation errors
 
 Thymeleaf offers convenient access to the Errors object via the fields property and with its `th:errors` attribute.
 
@@ -1010,7 +1010,7 @@ The `th:errors` attribute references the `ccNumber` field and, assuming errors e
 
 ​											Validation errors displayed on the order form
 
-## 2.4 Working with view controllers
+### 2.4 Working with view controllers
 
 When a controller is simple enough that it doesn’t populate a model or process input—as is the case with
 your HomeController—there’s another way that you can define the controller.
@@ -1037,7 +1037,7 @@ public class WebConfig implements WebMvcConfigurer {
 
 The addViewControllers() method is given a ViewControllerRegistry that you can use to register one or more view controllers.
 
-## 2.5 Choosing a view template library
+### 2.5 Choosing a view template library
 
  The follow table  catalogs the template options supported by Spring Boot autoconfiguration.
 
@@ -1049,7 +1049,7 @@ The addViewControllers() method is given a ViewControllerRegistry that you can u
 | Mustache               | spring-boot-starter-mustache         |
 | Thymeleaf              | spring-boot-starter-thymeleaf        |
 
-### 2.5.1 Caching templates
+#### 2.5.1 Caching templates
 
 By default, templates are parsed only once—when they’re first used—and the results of that parse are cached for subsequent use. This is a great feature for production, because it prevents redundant template parsing on each request and thus improves performance.
 
@@ -1068,7 +1068,7 @@ By default, all of these properties are set to true to enable caching. You can d
 spring.thymeleaf.cache=false
 ```
 
-## 2.6 Summary
+### 2.6 Summary
 
 1. Spring offers a powerful web framework called Spring MVC that can be used to develop the web frontend for a Spring application.
 2. Spring MVC is annotation-based, enabling the declaration of request-handling methods with annotations such as `@RequestMapping`, `@GetMapping`, and `@PostMapping`.
@@ -1077,13 +1077,38 @@ spring.thymeleaf.cache=false
 5. View controllers can be registered with `addViewController` in a `WebMvcConfigurer` class to handle HTTP GET requests for which no model data or processing is required.
 6. In addition to Thymeleaf, Spring supports a variety of view options, including FreeMarker, Groovy templates, and Mustache.
 
-# 3 Working with data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+## 3 Working with data                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
 Spring JDBC support is rooted in the `JdbcTemplate` class. JdbcTemplate provides a means by which developers can perform SQL operations against a relational database without all the ceremony and boilerplate typically required when working with JDBC.
 
-## 3.1.Reading and writing data with JDBC
+### 3.1.Reading and writing data with JDBC
 
-### 3.1.1 Working with JdbcTemplate
+#### 3.1.1 *Adapting the domain for persistence*
+
+```java
+@Data
+public class Taco {
+  private Long id;
+  private Date createdAt = new Date();
+  // ...
+}
+```
+
+
+
+```java
+@Data
+public class TacoOrder implements Serializable {
+ private static final long serialVersionUID = 1L;
+ private Long id;
+ private Date placedAt;
+ // ...
+}
+```
+
+
+
+#### 3.1.2 Working with JdbcTemplate
 
 Before you can start using JdbcTemplate, you need to add it to your project classpath.
 
@@ -1148,11 +1173,11 @@ public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) {
 }
 ```
 
-### 3.1.2  Defining a schema and preloading data
+#### 3.1.3 Defining a schema and preloading data
 
 ![image-20231123212203016](Spring.assets/image-20231123212203016.png)
 
-### 3.1.4 Inserting data
+#### 3.1.4 Inserting data
 
 The id property on the Taco_Order table is an identity, meaning that the database will determine the value
 automatically. But if the database determines the value for you, then you will need to know what that value is so that it can be returned in the TacoOrder object returned from the save() method.Fortunately, Spring offers a helpful `GeneratedKeyHolder` type that can help with that. But it involves working with a prepared statement, as shown in the following implementation of the save() method:
@@ -1209,7 +1234,7 @@ If `setReturnGeneratedKeys(true)` is not used, `GeneratedKeyHolder` won't captur
 
 In this specific example, `GeneratedKeyHolder` is used to store the generated primary key value ( `orderId` ) after inserting into the `Taco_Order` table. Then, `keyHolder.getKey().longValue()` is used to retrieve this value, which is then set to `order.setId(orderId)`, ensuring that the `order` object contains the primary key value generated after the insert operation.
 
-## 3.2 Working with Spring Data JDBC
+### 3.2 Working with Spring Data JDBC
 
 The Spring Data project is a rather large umbrella project comprising several subprojects, most of which are focused on data persistence with a variety of different database types. A few of the most popular Spring Data projects include these:
 
@@ -1283,11 +1308,11 @@ public class TacoOrder {
 private String deliveryName;
 ```
 
-## 3.3 Persisting data with Spring Data JPA
+### 3.3 Persisting data with Spring Data JPA
 
 Whereas Spring Data JDBC makes easy work of persisting data, the Java Persistence API (JPA) is another popular option for working with data in a relational database.Spring Data JPA offers an approach to persistence with JPA similar to what Spring Data JDBC gave us for JDBC.
 
-### 3.3.1 Adding Spring Data JPA to the project
+#### 3.3.1 Adding Spring Data JPA to the project
 
 ```xml
 <dependency>
@@ -1296,7 +1321,7 @@ Whereas Spring Data JDBC makes easy work of persisting data, the Java Persistenc
 </dependency>
 ```
 
-### 3.3.2 Annotating the domain as entities
+#### 3.3.2 Annotating the domain as entities
 
 ```java
 package tacos;
@@ -1326,7 +1351,7 @@ public class Ingredient {
 }
 ```
 
-To declare this as a JPA entity, Ingredient must be annotated with `@Entity`. And its `id` property must be annotated with `@Id` to designate it as the property that will uniquely identify the entity in the database. Note that this `@Id` annotation is the JPA variety from the `javax.persistence package`, as opposed to the `@Id `provided by Spring Datain the `org.springframework.data.annotation` package.
+To declare this as a JPA entity, Ingredient must be annotated with `@Entity`. And its `id` property must be annotated with `@Id` to designate it as the property that will uniquely identify the entity in the database. Note that this `@Id` annotation is the JPA variety from the `javax.persistence package`, as opposed to the `@Id `provided by Spring Data JDB in the `org.springframework.data.annotation` package.
 
 `@RequiredArgsConstructor` --- The `@Data` annotation implicitly adds a required arguments constructor, but when a `@NoArgsConstructor` is used, that constructor is removed. An explicit `@RequiredArgsConstructor` ensures that you’ll still have a required arguments constructor, in addition to the private noarguments constructor.
 
@@ -1381,7 +1406,7 @@ public class TacoOrder implements Serializable{
 
 the cascade attribute is set to CascadeType.ALL so that if the order is deleted, its related tacos will also be deleted. 
 
-### 3.3.3 Declaring JPA repositories
+#### 3.3.3 Declaring JPA repositories
 
 It's as same as Spring Data JDBC:
 
@@ -1412,7 +1437,7 @@ public interface OrderRepository
 
 ```
 
-### 3.3.4  Customizing repositories
+#### 3.3.4  Customizing repositories
 
 When generating the repository implementation, Spring Data examines each method in the repository interface, parses the method name, and attempts to understand the method’s purpose in the context of the persisted object.
 
@@ -1427,7 +1452,7 @@ As you can see, the verb in readOrdersByDeliveryZipAndPlacedAtBetween() is read.
 
 ![image-20231124005543545](Spring.assets/image-20231124005543545.png)
 
-Although the naming convention can be useful for relatively simple queries, it doesn’t take much imagination to see that method names could get out of hand for more complex queries. In that case, feel free to name the method anything you want and annotate it with @Query to explicitly specify the query to be performed when the
+Although the naming convention can be useful for relatively simple queries, it doesn’t take much imagination to see that method names could get out of hand for more complex queries. In that case, feel free to name the method anything you want and annotate it with `@Query` to explicitly specify the query to be performed when the
 
 method is called, as this example shows:
 
@@ -1440,10 +1465,10 @@ List<TacoOrder> readOrdersDeliveredInSeattle();
 
 key differences:
 
-1. All custom query methods require @Query. This is because, unlike JPA, there’s no mapping metadata to help Spring Data JDBC automatically infer the query from the method name.
-2. All queries specified in @Query must be SQL queries, not JPA queries.
+1. All custom query methods require `@Query`. This is because, unlike JPA, there’s no mapping metadata to help Spring Data JDBC automatically infer the query from the method name.
+2. All queries specified in `@Query` must be SQL queries, not JPA queries.
 
-## 3.4 Summary
+### 3.4 Summary
 
 1. Spring’s JdbcTemplate greatly simplifies working with JDBC.
 2. PreparedStatementCreator and KeyHolder can be used together when you need to know the value of a database-generated ID.
@@ -1451,15 +1476,15 @@ key differences:
 
 easy as writing a repository interface.
 
-# 4 Working with nonrelational data
+## 4 Working with nonrelational data
 
-## 4.1 Working with Cassandra
+### 4.1 Working with Cassandra
 
 Cassandra is a distributed, high-performance, always available, eventually consistent, partitioned-column-store, NoSQL database.
 
-### 4.1.1  Enabling Spring Data Cassandra
+#### 4.1.1  Enabling Spring Data Cassandra
 
-There are actually two separate Spring Data Cassandra starter dependencies to choose from: one for reactive data persistence and one for standard, nonreactive persistence.We’ll talk more about writing reactive repositories later in chapter 15. For now,though, we’ll use the nonreactive starter in our build as shown here:
+There are actually two separate Spring Data Cassandra starter dependencies to choose from: ==one for reactive data persistence and one for standard, nonreactive persistence==.We’ll talk more about writing reactive repositories later in chapter 15. For now,though, we’ll use the nonreactive starter in our build as shown here:
 
 ```java
 <dependency>
@@ -1492,16 +1517,16 @@ spring:
 >
 > local-datacenter : property identifies the name of the local data center for purposes of setting Cassandra’s load-balancing policy
 
-### 4.1.2 Understanding Cassandra data modeling
+#### 4.1.2 Understanding Cassandra data modeling
 
 a few of the ways that Cassandra data modeling is different from how you might model your data for persistence in a relational database:
 
 1. Cassandra tables may have any number of columns, but not all rows will necessarily use all of those columns.
 2. Cassandra databases are split across multiple partitions. Any row in a given table may be managed by one or more partitions, but it’s unlikely that all partitions will have all rows.
-3. A Cassandra table has two kinds of keys: partition keys and clustering keys. Hash operations are performed on each row’s partition key to determine which partition(s) that row will be managed by. Clustering keys determine the order in which the rows are maintained within a partition (not necessarily the order in which they may appear in the results of a query). Refer to Cassandra documentation (http://mng.bz/yJ6E) for a more detailed explanation of data modeling in Cassandra, including partitions, clusters, and their respective keys.
-4. Cassandra is highly optimized for read operations. As such, it’s common and desirable for tables to be highly denormalized and for data to be duplicated across multiple tables. (For example, customer information may be kept in a customer table as well as duplicated in a table containing orders placed by customers.)
+3. A Cassandra table has two kinds of keys: ==partition keys== and ==clustering keys==. Hash operations are performed on each row’s partition key to determine which partition(s) that row will be managed by. Clustering keys determine the order in which the rows are maintained within a partition (not necessarily the order in which they may appear in the results of a query). Refer to Cassandra documentation (http://mng.bz/yJ6E) for a more detailed explanation of data modeling in Cassandra, including partitions, clusters, and their respective keys.
+4. ==Cassandra is highly optimized for read operations==. As such, it’s common and desirable for tables to be highly denormalized and for data to be duplicated across multiple tables. (For example, customer information may be kept in a customer table as well as duplicated in a table containing orders placed by customers.)
 
-### 4.1.3 Mapping domain types for Cassandra persistence
+#### 4.1.3 Mapping domain types for Cassandra persistence
 
 Suffice it to say that adapting the Taco Cloud domain types to work with Cassandra won’t be a matter of simply swapping out a few JPA annotations for Cassandra annotations. 
 
@@ -1611,9 +1636,9 @@ public class Ingredient {
 }
 ```
 
-But why do you need to introduce a new IngredientUDT class? Why can’t you just reuse the Ingredient class? Put simply, columns that contain collections of data, such as the ingredients column, must be collections of native types (integers, strings, and so on) or user-defined types.
+But why do you need to introduce a new IngredientUDT class? Why can’t you just reuse the Ingredient class? Put simply, columns that contain collections of data, such as the ingredients column, ==must be collections of native types== (integers, strings, and so on) or user-defined types.
 
- In Cassandra, user-defined types enable you to declare table columns that are richer than simple native types. Often they’re used as a denormalized analog for relational foreign keys. In contrast to foreign keys, which only hold a reference to a row in another table, columns with user-defined types actually carry data that may be copied from a row in another table. In the case of the ingredients column in the tacos table, it will contain a collection of data structures that define the ingredients themselves.
+In Cassandra, user-defined types enable you to declare table columns that are richer than simple native types. Often they’re used as a denormalized analog for relational foreign keys. In contrast to foreign keys, which only hold a reference to a row in another table, columns with user-defined types actually carry data that may be copied from a row in another table. In the case of the ingredients column in the tacos table, it will contain a collection of data structures that define the ingredients themselves.
 
 The follow figure  shows the data model for the entire Taco Cloud database, including user-defined types
 
@@ -1635,7 +1660,7 @@ cqlsh:tacocloud> select id, name, createdAt, ingredients from tacos;
 									{name: 'Cheddar', type: 'CHEESE'}]
 ```
 
-### 4.1.4 Writing Cassandra repositories
+#### 4.1.4 Writing Cassandra repositories
 
 ```java
 package tacos.data;
@@ -1665,11 +1690,11 @@ public interface OrderRepository
 }
 ```
 
-## 4.2 Writing MongoDB repositories
+### 4.2 Writing MongoDB repositories
 
 MongoDB is considered a document database. More specifically,MongoDB stores documents in BSON (Binary JSON) format, which can be queried for and retrieved in a way that’s roughly similar to how you might query for data in any other database.
 
-### 4.2.1  Enabling Spring Data MongoDB
+#### 4.2.1  Enabling Spring Data MongoDB
 
 ```xml
 <dependency>
@@ -1721,7 +1746,7 @@ spring:
 
 
 
-### 4.2.2 Mapping domain types to documents
+#### 4.2.2 Mapping domain types to documents
 
 the following four are useful for most common use cases for mapping:
 
@@ -1876,7 +1901,7 @@ public class TacoOrder implements Serializable {
 }
 ```
 
-### 4.2.3 Writing MongoDB repository interfaces
+#### 4.2.3 Writing MongoDB repository interfaces
 
 Indeed, it’s the same interface, with no changes. This highlights one of the benefits of extending CrudRepository—it’s more portable across various database types and works equally well for MongoDB as for Cassandra.
 
@@ -1901,15 +1926,15 @@ public interface OrderRepository
 }
 ```
 
-## 4.3 Summary
+### 4.3 Summary
 
 * Spring Data supports repositories for a variety of NoSQL databases, including Cassandra, MongoDB, Neo4j, and Redis.
 * The programming model for creating repositories differs very little across different underlying databases.
 * Working with nonrelational databases demands an understanding of how to model data appropriately for how the database ultimately stores the data. 
 
-# 5 Securing Spring
+## 5 Securing Spring
 
-## 5.1 Enabling Spring Security
+### 5.1 Enabling Spring Security
 
 The very first step in securing your Spring application is to add the Spring Boot security starter dependency to your build. 
 
@@ -1937,7 +1962,7 @@ By doing nothing more than adding the security starter to the project build, you
 * Authentication is prompted with a simple login page.
 * There’s only one user; the username is *user*.
 
-## 5.2 Configuring authentication
+### 5.2 Configuring authentication
 
 ```java
 package tacos.security;
@@ -1965,7 +1990,7 @@ The main thing it does is declare a `PasswordEncoder` bean, which we’ll use bo
 * *SCryptPasswordEncoder*—Applies Scrypt hashing encryption
 * *StandardPasswordEncoder*—Applies SHA-256 hashing encryption
 
-No matter which password encoder you use, it’s important to understand that the password in the database is never decoded. 
+No matter which password encoder you use, it’s important to understand that ==the password in the database is never decoded==. 
 
 > Which password encoder should you use?
 >
@@ -1975,7 +2000,7 @@ No matter which password encoder you use, it’s important to understand that th
 >
 > Instead, consider one of the other password encoders, any of which are more secure.We’re going to use `BCryptPasswordEncoder` for the examples in this book.
 
-To configure a user store for authentication purposes, you’ll need to declare a `UserDetailsService` bean. 
+To configure ==a user store== for authentication purposes, you’ll need to declare a `UserDetailsService` bean. 
 
 ```java
 public interface UserDetailsService {
@@ -1990,7 +2015,7 @@ As it turns out, Spring Security offers several out-of-the-box implementations o
 * A JDBC user store
 * An LDAP user store
 
-### 5.2.1 In-memory user details service
+#### 5.2.1 In-memory user details service
 
 One place where user information can be kept is in memory. Suppose you have only a handful of users, none of which are likely to change. 
 
@@ -2014,9 +2039,9 @@ Then an `InMemoryUserDetailsManager` is created using that list.
 
 For the Taco Cloud application, you want customers to be able to register with the application and manage their own user accounts. That doesn’t fit with the limitations of the in-memory user details service.
 
-### 5.2.2  Customizing user authentication
+#### 5.2.2  Customizing user authentication
 
-DEFINING THE USER DOMAIN AND PERSISTENCE
+==DEFINING THE USER DOMAIN AND PERSISTENCE==
 
 ```java
 package tacos;
@@ -2100,7 +2125,7 @@ public interface UserRepository extends CrudRepository<User, Long> {
 
 As you learned in chapter 3, Spring Data JPA automatically generates the implementation of this interface at run time. 
 
-CREATING A USER DETAILS SERVICE
+==CREATING A USER DETAILS SERVICE==
 
 ```java
 @Bean
@@ -2154,7 +2179,7 @@ public class RegistrationController {
 
 ```
 
-## 5.3 Securing web requests
+### 5.3 Securing web requests
 
 ```java
 @Bean
@@ -2170,7 +2195,7 @@ The following are among the many things you can configure with HttpSecurity:
 * Enabling users to log out of the application
 * Configuring cross-site request forgery protection
 
-### 5.3.1 Securing requests
+#### 5.3.1 Securing requests
 
 Ensuring that requests for /design and /orders are available only to authenticated users; all other requests should be permitted for all users. The following configuration does exactly that:
 
@@ -2240,7 +2265,7 @@ public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 }
 ```
 
-### 5.3.2 createing a custom login page
+#### 5.3.2 createing a custom login page
 
 To replace the built-in login page, you first need to tell Spring Security what path your custom login page will be at. That can be done by calling `formLogin()` on the HttpSecurity object, as shown next:
 
@@ -2353,7 +2378,7 @@ Optionally, you can force the user to the design page after login, even if they 
  		.defaultSuccessUrl("/design", true)
 ```
 
-### 5.3.3 Enabling third-party authentication
+#### 5.3.3 Enabling third-party authentication
 
 You may have seen links or buttons on your favorite website that say “Sign in with Facebook,” “Log in with Twitter,” or something similar.This type of authentication is based on OAuth2 or OpenID Connect (OIDC).Although OAuth2 is an authorization specification, and we’ll talk more about how to use it to secure REST APIs in chapter 8, it can be also used to perform authentication via a third-party website. OpenID Connect is another security specification that is based on OAuth2 to formalize the interaction that takes place during a third-party authentication.
 
@@ -2394,7 +2419,7 @@ For example:
 
 If you’ve customized security by declaring a SecurityFilterChain bean,then you’ll need to enable OAuth2 login along with the rest of the security configuration as follows:
 
-### 5.3.4 Preventing cross-site request forgery
+#### 5.3.4 Preventing cross-site request forgery
 
 Cross-site request forgery (CSRF) is a common security attack. It involves subjecting a user to code on a maliciously designed web page that automatically (and usually secretly) submits a form to another application on behalf of a user who is often the victim of the attack. For example, a user may be presented with a form on an attacker’s website that automatically posts to a URL on the user’s banking website (which is presumably poorly designed and vulnerable to such an attack) to transfer money. The user may not even know that the attack happened until they notice money missing from their account.
 
@@ -2420,7 +2445,7 @@ if you insist on disabling it, you can do so by calling disable() like this:
 
 
 
-## 5.4 Applying method-level security
+### 5.4 Applying method-level security
 
  we can apply security directly on the deleteAllOrders() method like this:
 
@@ -2473,7 +2498,7 @@ public TacoOrder getOrder(long id) {
 }
 ```
 
-## 5.5  Knowing your user
+### 5.5  Knowing your user
 
 To achieve the desired connection between an TacoOrder entity and a User entity,you need to add the following new property to the TacoOrder class:
 
@@ -2491,13 +2516,13 @@ public class TacoOrder implements Serializable {
 
 We have several ways to determine who the user is. A few of the most common ways follow:
 
-* Inject a java.security.Principal object into the controller method.
+* Inject a java.security.==Principal== object into the controller method.
 
-* Inject an org.springframework.security.core.Authentication object into the controller method.
+* Inject an org.springframework.security.core.==Authentication== object into the controller method.
 
-* Use org.springframework.security.core.context.SecurityContextHolder to get at the security context.
+* Use org.springframework.security.core.context.==SecurityContextHolder== to get at the security context.
 
-* Inject an @AuthenticationPrincipal annotated method parameter.(@AuthenticationPrincipal is from Spring Security’s org.springframework.security.core.annotation package.)
+* Inject an ==@AuthenticationPrincipal== annotated method parameter.(@AuthenticationPrincipal is from Spring Security’s org.springframework.security.core.annotation package.)
 
 For example, you could modify `processOrder()` to accept a java.security.Principal as a parameter. You could then use the principal name to look up the user from a `UserRepository` as follows:
 
@@ -2558,25 +2583,25 @@ User user = (User) authentication.getPrincipal();
 
 Although this snippet is thick with security-specific code, it has one advantage over the other approaches described: it can be used anywhere in the application, not just in a controller’s handler methods. This makes it suitable for use in lower levels of the code.
 
-## 5.6 Summary
+### 5.6 Summary
 
 * Spring Security autoconfiguration is a great way to get started with security, but most applications will need to explicitly configure security to meet their unique security requirements.
 * User details can be managed in user stores backed by relational databases,LDAP, or completely custom implementations.
 * Spring Security automatically protects against CSRF attacks.
 * Information about the authenticated user can be obtained via the SecurityContext object (returned from SecurityContextHolder.getContext()) or injected into controllers using @AuthenticationPrincipal.
 
-# 6 Working with configuration properties
+## 6 Working with configuration properties
 
 Spring Boot provides a way to set property values on application components with configuration properties. Configuration properties are nothing more than properties on `@ConfigurationProperties`-annotated beans in the Spring application context. 
 
-## 6.1 Fine-tuning autoconfiguration
+### 6.1 Fine-tuning autoconfiguration
 
 It’s important to establish the following different (but related) kinds of configurations in Spring:
 
 * *Bean wiring*—Configuration that declares application components to be created as beans in the Spring application context and how they should be injected into each other.
 * *Property injection*—Configuration that sets values on beans in the Spring application context
 
-### 6.1.1  *Understanding Spring’s environment abstraction*
+#### 6.1.1  *Understanding Spring’s environment abstraction*
 
 The Spring environment pulls from several property sources, including the following:
 
@@ -2608,7 +2633,7 @@ or setting it one time as an operating system environment variable, as shown nex
 $ export SERVER_PORT=9090
 ```
 
-### 6.1.2 Configuring a data source
+#### 6.1.2 Configuring a data source
 
 If you were to start using a MySQL database, you might add the following configuration properties to application.yml:
 
@@ -2640,7 +2665,7 @@ spring:
  		- ingredients.sql
 ```
 
-### 6.1.3 Configuring the embedded server
+#### 6.1.3 Configuring the embedded server
 
 ```yaml
 server:
@@ -2651,7 +2676,7 @@ server:
  		key-password: letmein
 ```
 
-### 6.1.4 Configuring logging
+#### 6.1.4 Configuring logging
 
 By default, Spring Boot configures logging via Logback (http://logback.qos.ch) to write to the console at an ==INFO== level. 
 
@@ -2707,7 +2732,7 @@ logging:
 
 The file and path indicates you want to write the log entries to the file TacoCloud.log at /var/logs/.
 
-### 6.1.5 *Using special property values*
+#### 6.1.5 *Using special property values*
 
 When setting properties, you aren’t limited to declaring their values as hardcoded String and numeric values. Instead, you can derive their values from other configuration properties.
 
@@ -2725,7 +2750,7 @@ greeting:
  	welcome: You are using ${spring.application.name}.
 ```
 
-## 6.2 Creating your own configuration properties
+### 6.2 Creating your own configuration properties
 
 To support property injection of configuration properties, Spring Boot provides the `@ConfigurationProperties` annotation. When placed on any Spring bean, it specifies that the properties of that bean can be injected from properties in the Spring environment.
 
@@ -2780,7 +2805,7 @@ taco:
 	 pageSize: 10
 ```
 
-### 6.2.1 *Defining configuration property holders*
+#### 6.2.1 *Defining configuration property holders*
 
 `@ConfigurationProperties` are in fact often placed on beans whose sole purpose in the application is to be holders of configuration data.This keeps configuration-specific details out of the controllers and other application classes. It also makes it easy to share common configuration properties among several beans that may make use of that information.
 
@@ -2827,7 +2852,7 @@ There’s nothing particularly special about configuration property holders. The
     
 ```
 
-6.2.2 *Declaring configuration property metadata*
+#### 6.2.2 *Declaring configuration property metadata*
 
 You may notice that the taco.orders.pageSize entry in application.yml (or application.properties) has a warning saying something like Unknown Property ‘taco’. 
 
@@ -2849,7 +2874,7 @@ To create metadata for your custom configuration properties, you’ll need to cr
 
 ![image-20231128161154467](Spring.assets/image-20231128161154467.png)
 
-## 6.3 *Configuring with profiles*
+### 6.3 *Configuring with profiles*
 
 Profiles are a type of conditional configuration where different beans, configuration classes, and configuration
 
@@ -2857,7 +2882,7 @@ properties are applied or ignored based on what profiles are active at run time.
 
 For instance, let’s say that for development and debugging purposes, you want to use the embedded H2 database, and you want the logging levels for the Taco Cloud code to be set to DEBUG. But in production, you want to use an external MySQL database and set the logging levels to WARN. 
 
-### 6.3.1  *Defining profile-specific properties*
+#### 6.3.1  *Defining profile-specific properties*
 
 One way to define profile-specific properties is to create yet another YAML or properties file containing only the properties for production. The name of the file should follow this convention: application-{profile name}.yml or application-{profile name}.properties. Then you can specify the configuration properties appropriate to that
 
@@ -2875,7 +2900,7 @@ logging:
  		tacos: WARN
 ```
 
-Another way to specify profile-specific properties works only with YAML configuration. It involves placing profile-specific properties alongside nonprofiled properties in application.yml, separated by three hyphens(---) and the spring.profiles property to name the profile.When applying the production properties to application.yml in this way, the entire application.yml would look like this:
+Another way to specify profile-specific properties works only with YAML configuration. It involves placing profile-specific properties alongside nonprofiled properties in application.yml, ==separated by three hyphens(---)== and the spring.profiles property to name the profile.When applying the production properties to application.yml in this way, the entire application.yml would look like this:
 
 ```yaml
 logging:
@@ -2899,7 +2924,7 @@ Although there’s no benefit to either approach, you might find that putting al
 
 single YAML file works best when the number of properties is small, whereas distinct files for each profile is better when you have a large number of properties. 
 
-### 6.3.2 *Activating profiles*
+#### 6.3.2 *Activating profiles*
 
 All it takes to make a profile active is to include it in the list of profile names given to the spring.profiles.active property. For example, you could set it in application.yml like this:
 
@@ -2941,7 +2966,7 @@ spring:
 
 It’s also worth noting that if you deploy a Spring application to Cloud Foundry, a profile named cloud is automatically activated for you. If Cloud Foundry is your production environment, you’ll want to be sure to specify production-specific properties under the cloud profile.
 
-### 6.3.3 *Conditionally creating beans with profiles*
+#### 6.3.3 *Conditionally creating beans with profiles*
 
 Normally, any bean declared in a Java configuration class is created, regardless of which profile is
 
@@ -2996,18 +3021,18 @@ public class DevelopmentConfig {
 }
 ```
 
-## 6.4 Summary
+### 6.4 Summary
 
 * We can annotate Spring beans with `@ConfigurationProperties` to enable injection of values from one of several property sources.
 * Configuration properties can be set in command-line arguments, environment variables, JVM system properties, properties files, or YAML files, among other options.
 * Use configuration properties to override autoconfiguration settings, including the ability to specify a data source URL and logging levels.
 * Spring profiles can be used with property sources to conditionally set configuration properties based on the active profile(s).
 
-# Part 2 Integrated Spring
+# Part 2 --- Integrated Spring
 
-# 7 Creating REST service
+## 7 Creating REST service
 
-## 7.1 *Writing RESTful controllers*
+### 7.1 *Writing RESTful controllers*
 
 In a nutshell, REST APIs aren’t much different from websites. Both involve responding to HTTP requests. But the key difference is that instead of responding to those requests with HTML, as websites do, ==REST APIs typically respond with a data-oriented format such as JSON or XML.==
 
@@ -3020,7 +3045,7 @@ In a nutshell, REST APIs aren’t much different from websites. Both involve res
 | @DeleteMapping  | HTTP DELETE request                                          | Deleting a resource   |
 | @RequestMapping | General-purpose request handling; HTTP method specified in the method attribute | Deleting a resource   |
 
-### 7.1.1 Retrieving data from the server
+#### 7.1.1 Retrieving data from the server
 
 ```java
 package tacos.web;
@@ -3115,7 +3140,7 @@ public ResponseEntity<Taco> tacoById(@PathVariable("id") Long id) {
 }
 ```
 
-### 7.1.2  *Sending data to the server*
+#### 7.1.2  *Sending data to the server*
 
 ```java
 @PostMapping(consumes="application/json")
@@ -3131,7 +3156,7 @@ The method’s Taco parameter is annotated with `@RequestBody` to indicate that 
 
 `@ResponseStatus(HttpStatus.CREATED).`--- when the request successful but a resource was created as a result an HTTP status of 201 (CREATED) will return.
 
-### 7.1.3 *Updating data on the server*
+#### 7.1.3 *Updating data on the server*
 
 PUT is really intended to perform a wholesale *replacement* operation rather than an update operation. In contrast, the purpose of HTTP PATCH is to perform a patch or partial update of resource data.
 
@@ -3195,7 +3220,7 @@ In the case of the putOrder() method, you accepted the complete data for an orde
 >
 > There’s really no hard-and-fast rule about how PATCH requests should be handled or what the incoming data should look like. Rather than sending the actual domain data, a client could send a patch-specific description of the changes to be applied. Of course, the request handler would have to be written to handle patch instructions instead of the domain data.
 
-### 7.1.4 *Deleting data from the server*
+#### 7.1.4 *Deleting data from the server*
 
 ```java
 @DeleteMapping("/{orderId}")
@@ -3207,17 +3232,18 @@ public void deleteOrder(@PathVariable("orderId") Long orderId) {
 }
 ```
 
-## 7.2 *Enabling data-backed services*
+### 7.2 *Enabling data-backed services*
 
 Spring Data REST is another member of the Spring Data family that automatically creates REST APIs for repositories created by Spring Data. By doing little more than adding Spring Data REST to your build, you get an API with operations for each repository interface you’ve defined.
 
 ```xml
 <dependency>
   <groupId>org.springframework.boot</groupId>
-  <artifactId>spring-boot-starter-data-rest</artifactId></dependency>
+  <artifactId>spring-boot-starter-data-rest</artifactId>
+</dependency>
 ```
 
-### 7.2.1 *Adjusting resource paths and relation names*
+#### 7.2.1 *Adjusting resource paths and relation names*
 
 ```java
 @Data
@@ -3237,7 +3263,7 @@ The `@RestResource` annotation lets you give the entity any relation name and pa
 },
 ```
 
-### 7.2.2  *Paging and sorting*
+#### 7.2.2  *Paging and sorting*
 
 For example, you need a way to fetch the 12 most recently created tacos for the UI to display. You can do that by specifying the following mix of paging and sorting parameters:
 
@@ -3245,7 +3271,7 @@ For example, you need a way to fetch the 12 most recently created tacos for the 
 $ curl "localhost:8080/data-api/tacos?sort=createdAt,desc&page=0&size=12"
 ```
 
-## 7.3  *Consuming REST services*
+### 7.3  *Consuming REST services*
 
 A Spring application can consume a REST API with the following:
 
@@ -3291,7 +3317,7 @@ public RestTemplate restTemplate() {
 }
 ```
 
-### 7.3.1 *GETting resources*
+#### 7.3.1 *GETting resources*
 
 Suppose that you want to fetch an ingredient from the Taco Cloud API. For that, you can use RestTemplate’s getForObject() to fetch the ingredient. 
 
@@ -3345,7 +3371,7 @@ public Ingredient getIngredientById(String ingredientId) {
 }
 ```
 
-### 7.3.2 *PUTting resources*
+#### 7.3.2 *PUTting resources*
 
 For sending HTTP PUT requests, RestTemplate offers the put() method. All three overloaded variants of put() accept an Object that is to be serialized and sent to the given URL. 
 
@@ -3358,7 +3384,7 @@ public void updateIngredient(Ingredient ingredient) {
 }
 ```
 
-### 7.3.3 *DELETEing resources*
+#### 7.3.3 *DELETEing resources*
 
 Suppose that Taco Cloud no longer offers an ingredient and wants it completely removed as an option. To make that happen, you can call the delete() method from RestTemplate as follows:
 
@@ -3369,7 +3395,7 @@ public void deleteIngredient(Ingredient ingredient) {
 }
 ```
 
-### 7.3.4 *POSTing resource data*
+#### 7.3.4 *POSTing resource data*
 
 Now let’s say that you add a new ingredient to the Taco Cloud menu. An HTTP POST request to the …/ingredients endpoint with ingredient data in the request body will make that happen. 
 
@@ -3403,18 +3429,18 @@ public Ingredient createIngredient(Ingredient ingredient) {
 }
 ```
 
-## 7.4 *Summary*
+### 7.4 *Summary*
 
 * REST endpoints can be created with Spring MVC, with controllers that follow the same programming model as browser-targeted controllers.
 * Controller handler methods can either be annotated with @ResponseBody or return ResponseEntity objects to bypass the model and view and write data directly to the response body.
 * The @RestController annotation simplifies REST controllers, eliminating the need to use @ResponseBody on handler methods.
 * Spring Data repositories can automatically be exposed as REST APIs using Spring Data REST.
 
-# 8 Scuring REST
+## 8 Scuring REST
 
 Securing a REST API is different from securing a browser-based web application. In this chapter, we’re going to look at OAuth 2, an authorization specification created specifically for API security. In doing so, we’ll look at Spring Security’s support for OAuth 2.
 
-## 8.1 *Introducing OAuth 2*
+### 8.1 *Introducing OAuth 2*
 
 ```java
 package tacos.web.api;
@@ -3528,7 +3554,7 @@ Four parts of the authorization code grant flow:
 * *The client application*—The client application is an application that wants to consume an API but needs permission to do so. We’ll build a simple administrative application for Taco Cloud to be able to add new ingredients.
 * *The user*—This is the human who uses the client application and grants the application permission to access the resource server’s API on their behalf.
 
-## 8.2 *Creating an authorization server*
+### 8.2 *Creating an authorization server*
 
 An authorization server’s job is primarily to issue an access token on behalf of a user.Spring Authorization Server is experimental and doesn’t implement all of the OAuth 2 grant types, but it does implement the authorization code grant and client credentials grant.
 
@@ -3674,7 +3700,7 @@ The JWKSource creates RSA 2048-bit key pairs that will be used to sign the token
 
 As you can see, the token is decoded into three parts: the header, the payload, and the signature. A closer look at the payload shows that this token was issued on behalf of the user named tacochef and the token has the "writeIngredients" and "deleteIngredients" scopes. Just what we asked for!
 
-## 8.3  *Securing an API with a resource server*
+### 8.3  *Securing an API with a resource server*
 
 The resource server is actually just a filter that sits in front of an API, ensuring that requests for resources that require authorization include a valid access token with the required scope. Spring Security provides an OAuth2 resource server implementation that you can add to an existing API by adding the following dependency to the build for the project build as follows:
 
@@ -3725,7 +3751,7 @@ spring:
            jwk-set-uri: http:/ /localhost:9000/oauth2/jwks
 ```
 
-## 8.4 *Developing the client*
+### 8.4 *Developing the client*
 
 In the OAuth 2 authorization dance, the client application’s role is to obtain an access token and make requests to the resource server on behalf of the user. Because we’re using OAuth 2’s authorization code flow, that means that when the client application determines that the user has not yet been authenticated, it should redirect the user’s browser to the authorization server to get consent from the user. Then, when the authorization server redirects control back to the client, the client must exchange the authorization code it receives for the access token.
 
@@ -3906,7 +3932,7 @@ Only one question remains: where does the access token come from? The following 
 
 @RequestScope--- This means that a new instance of the bean will be created on every request. The bean must be request-scoped because it needs to pull the authentication from the SecurityContext, which is populated on every request by one of Spring Security’s filters; there is no SecurityContext at application startup time when default-scoped beans are created.
 
-## 8.5 *Summary*
+### 8.5 *Summary*
 
 * OAuth 2 security is a common way to secure APIs that is more robust than simple HTTP Basic authentication.
 * An authorization server issues access tokens for a client to act on behalf of a user when making requests to an API (or on its own behalf in the case of client token flow).
@@ -3914,17 +3940,17 @@ Only one question remains: where does the access token come from? The following 
 * Spring Authorization Server is an experimental project that implements an OAuth 2 authorization server.
 * Spring Security provides support for creating a resource server, as well as creating clients that obtain access tokens from the authorization server and pass those tokens when making requests through the resource server.
 
-# 9 Sending messages asynchronously
+## 9 Sending messages asynchronously
 
 Asynchronous messaging is a way of indirectly sending messages from one application to another without waiting for a response. ==This indirection affords looser coupling and greater scalability between the communicating applications.==
 
 We’ll consider three options that Spring offers for asynchronous messaging: the Java Message Service (JMS), RabbitMQ and Advanced Message Queueing Protocol (AMQP), and Apache Kafka. In addition to the basic sending and receiving of messages, we’ll look at Spring’s support for message-driven POJOs: a way to receive messages that resembles Enterprise JavaBeans’ message-driven beans(MDBs).
 
-## 9.1 Sending message with JMS
+### 9.1 Sending message with JMS
 
 JMS is a Java standard that defines a common API for working with message brokers. Spring supports JMS through a template-based abstraction known as JmsTemplate.Using JmsTemplate, it’s easy to send messages across queues and topics from the producer side and to receive those messages on the consumer side. Spring also supports the notion of message-driven POJOs: simple Java objects that react to messages arriving on a queue or topic in an asynchronous fashion.
 
-### 9.1.1 Setting up JMS
+#### 9.1.1 Setting up JMS
 
 Before you can use JMS, you must add a JMS client to your project’s build. All you need to do is add a starter dependency to the build. First, though, you must decide whether you’re going to use Apache ActiveMQ, or the newer Apache ActiveMQ Artemis broker.
 
@@ -3981,7 +4007,7 @@ spring:
 
 If you’re using ActiveMQ, you will, however, need to set the spring.activemq.in-memory property to false to prevent Spring from starting an in-memory broker.放在内存中，只有当在同一个应用中使用这些消息的时候才有好处。
 
-### 9.1.2 *Sending messages with JmsTemplate*
+#### 9.1.2 *Sending messages with JmsTemplate*
 
 With a JMS starter dependency (either Artemis or ActiveMQ) in your build, Spring Boot will autoconfigure a JmsTemplate (among other things) that you can inject and use to send and receive messages.
 
@@ -4274,7 +4300,7 @@ private Message addOrderSource(Message message) throws JMSException {
 }
 ```
 
-### 9.1.3  *Receiving JMS messages*
+#### 9.1.3  *Receiving JMS messages*
 
 When it comes to consuming messages, you have the choice of a *pull model*, where your code requests a message and waits until one arrives, or a *push model*, in which messages are handed to your code as they become available.
 
@@ -4362,6 +4388,8 @@ This seems like a natural choice for a pull model.
 
 ==DECLARING MESSAGE LISTENERS==
 
+Now let’s see how a ==push model== works by declaring a JMS listener. 
+
 Unlike the pull model, where an explicit call to `receive()` or `receiveAndConvert()` was required to receive a message, a message listener is a passive component that’s idle until a message arrives.
 
 To create a message listener that reacts to JMS messages, you simply annotate a method in a component with `@JmsListener`.
@@ -4404,7 +4432,7 @@ Message listeners are often touted as the best choice because ==they don’t blo
 
 JMS的短板，只适用于Java程序。但是 RabbitMQ and Kafka 是跨平台的，适用于多种语言。
 
-## 9.2  *Working with RabbitMQ and AMQP*
+### 9.2  *Working with RabbitMQ and AMQP*
 
 JMS messages are addressed with the name of a destination from which the receiver will retrieve them, AMQP messages are addressed with the name of an exchange and a routing key, which are decoupled from the queue to which the receiver is listening. 
 
@@ -4426,7 +4454,7 @@ There are several different kinds of exchanges, including the following:
 * *Headers*—Similar to a topic exchange, except that routing is based on message header values rather than routing keys.
 * *Dead letter*—A catchall for any messages that are undeliverable (meaning they don’t match any defined exchange-to-queue binding).
 
-### 9.2.1 *Adding RabbitMQ to Spring*
+#### 9.2.1 *Adding RabbitMQ to Spring*
 
 Before you can start sending and receiving RabbitMQ messages with Spring, you’ll need to add Spring Boot’s AMQP starter dependency .
 
@@ -4453,7 +4481,7 @@ spring:
    password: l3tm31n
 ```
 
-### 9.2.2  *Sending messages with RabbitTemplate*
+#### 9.2.2  *Sending messages with RabbitTemplate*
 
 At the core of Spring’s support for RabbitMQ messaging is RabbitTemplate. RabbitTemplate is similar to JmsTemplate and offers a similar set of methods. As you’ll see, however, some subtle differences align with the unique way that RabbitMQ works.
 
@@ -4585,7 +4613,7 @@ public void sendOrder(TacoOrder order) {
  }
 ```
 
-### 9.2.3  *Receiving messages from RabbitMQ*
+#### 9.2.3  *Receiving messages from RabbitMQ*
 
 You’ve seen that sending messages with RabbitTemplate doesn’t differ much from sending messages with JmsTemplate. 
 
@@ -4719,7 +4747,7 @@ public class OrderListener {
 
 这和 `JmsTemplate` 中的 `@JmsListener` 几乎一样，所以没什么好说的。
 
-## 9.3  *Messaging with Kafka*
+### 9.3  *Messaging with Kafka*
 
 Kafka is a message broker just like ActiveMQ, Artemis, or Rabbit. But Kafka has a few unique tricks up its sleeves.
 
@@ -4731,7 +4759,7 @@ Going a step further, each topic can be split into multiple partitions. In that 
 
 ![image-20231203004625280](Spring.assets/image-20231203004625280.png)
 
-### 9.3.1 *Setting up Spring for Kafka messaging*
+#### 9.3.1 *Setting up Spring for Kafka messaging*
 
 添加 kafka 依赖
 
@@ -4773,7 +4801,7 @@ spring:
   - localhost:9092
 ```
 
-### 9.3.2 *Sending messages with KafkaTemplate*
+#### 9.3.2 *Sending messages with KafkaTemplate*
 
 和 `JmsTemplate` 以及 `RabbitTemplate` 很像
 
@@ -4800,7 +4828,7 @@ When sending messages in Kafka, you can specify the following parameters to guid
 * A timestamp (optional; defaults to System.currentTimeMillis())
 * The payload (required)
 
-The topic and payload are the two most important parameters. 其余的都是附加信息。我们的目的是将 payload 发送给指定的 topic。
+==The topic and payload are the two most important parameters==. 其余的都是附加信息。==我们的目的是将 payload 发送给指定的 topic==。
 
 For the send() method, you can also choose to send a ProducerRecord, which is little more than a type that captures all of the preceding parameters in a single object. You can also send a Message object, but doing so would require you to convert your domain objects into a Message.
 
@@ -4853,7 +4881,7 @@ public void sendOrder(TacoOrder order) {
 }
 ```
 
-### 9.3.3 *Writing Kafka listeners*
+#### 9.3.3 *Writing Kafka listeners*
 
 KafkaTemplate differs from JmsTemplate and RabbitTemplate in that it doesn’t offer any methods for receiving messages. That means the only way to consume messages from a Kafka topic using Spring is to write a message listener.
 
@@ -4921,7 +4949,7 @@ public void handle(Order order, Message<Order> message) {
 }
 ```
 
-## 9.4 *Summary*
+### 9.4 *Summary*
 
 * Asynchronous messaging provides a layer of indirection between communicating applications, which allows for looser coupling and greater scalability.
 * Spring supports asynchronous messaging with JMS, RabbitMQ, or Apache Kafka.
@@ -4929,11 +4957,11 @@ public void handle(Order order, Message<Order> message) {
 * Receiving applications can consume messages in a pull-based model using the same template-based clients. 
 * Messages can also be pushed to consumers by applying message listener annotations (@JmsListener, @RabbitListener, or @KafkaListener) to bean methods.
 
-# 10 Integrating Spring
+## 10 Integrating Spring
 
 Spring Integration is a ready-to-use implementation of many of the integration patterns that are catalogued in *Enterprise Integration Patterns* by Gregor Hohpe and Bobby Woolf (Addison-Wesley, 2003). Each pattern is implemented as a component through which messages ferry data in a pipeline. Using Spring configuration, you can assemble these components into a pipeline through which data flows. 
 
-## 10.1 *Declaring a simple integration flow*
+### 10.1 *Declaring a simple integration flow*
 
 Generally speaking, Spring Integration enables the creation of integration flows through which an application can receive or send data to some resource external to the application itself. One such resource that an application may integrate with is the filesystem. Therefore, ==among Spring Integration’s many components are channel adapters for reading and writing files==.
 
@@ -4984,7 +5012,7 @@ The defaultRequestChannel attribute of `@MessagingGateway` indicates that any me
 * Java configuration
 * Java configuration with a DSL
 
-### 10.1.1 *Defining integration flows with XML*
+#### 10.1.1 *Defining integration flows with XML*
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -5037,7 +5065,7 @@ If you want to use XML configuration in a Spring Boot application, you’ll need
 public class FileWriterIntegrationConfig { ... }
 ```
 
-### 10.1.2 *Configuring integration flows in Java*
+#### 10.1.2 *Configuring integration flows in Java*
 
 Most modern Spring applications have eschewed XML configuration in favor of Java configuration.
 
@@ -5096,7 +5124,7 @@ public MessageChannel fileWriterChannel() {
 }
 ```
 
-### 10.1.3 *Using Spring Integration’s DSL configuration*
+#### 10.1.3 *Using Spring Integration’s DSL configuration*
 
 This time, you’ll still define it in Java, but you’ll use Spring Integration’s Java DSL(Domain-Specific Language). Rather than declare an individual bean for each component in the flow, you’ll declare a single bean that defines the entire flow.
 
@@ -5159,7 +5187,7 @@ public class FileWriterIntegrationConfig {
 
 One thing to keep in mind when working with Spring Integration’s Java DSL (as with any fluent API) is that you must employ whitespace shrewdly to maintain readability.
 
-## 10.2 *Surveying the Spring Integration landscape*
+### 10.2 *Surveying the Spring Integration landscape*
 
 An integration flow is composed of one or more of the following components. Before you write any more code, we’ll take a brief look at the role each of these components plays in an integration flow:
 
@@ -5173,7 +5201,7 @@ An integration flow is composed of one or more of the following components. Befo
 * *Channel adapter*—Connects a channel to some external system or transport; can either accept input or write to the external system
 * *Gateway*—Passes data into an integration flow via an interface
 
-### 10.2.1 *Message channels*
+#### 10.2.1 *Message channels*
 
 Message channels are the means by which messages move through an integration pipeline, as shown in figure 10.2. They’re the pipes that connect all the other parts of Spring Integration plumbing together.
 
@@ -5235,7 +5263,7 @@ public MessageChannel orderChannel() {
 
 In this example, the service activator polls from the channel named orderChannel every 1 second (or 1,000 ms). 
 
-### 10.1.2 *Filter*s
+#### 10.1.2 *Filter*s
 
 You can place filters in the midst of an integration pipeline to allow or disallow messages from proceeding to the next step in the flow, as shown in figure 10.3.
 
@@ -5266,7 +5294,7 @@ public IntegrationFlow evenNumberFlow(AtomicInteger integerSource) {
 
 the `filter()` method accepts a `GenericSelector` as an argument. This means that you can implement the `GenericSelector` interface instead, should your filtering needs be too involved for a simple lambda.
 
-### 10.2.3 *Transformers*
+#### 10.2.3 *Transformers*
 
 Transformers perform some operation on messages, typically resulting in a different message and, possibly, with a different payload type (see figure 10.4). The transformation can be something simple, such as performing mathematic operations on a number or manipulating a String value. Or the transformation can be more complex, such as using a String value representing an ISBN to look up and return details of the corresponding book.
 
@@ -5316,7 +5344,7 @@ public IntegrationFlow transformerFlow(RomanNumberTransformer romanNumberTransfo
 }
 ```
 
-### 10.2.4 *Router*
+#### 10.2.4 *Router*
 
 Routers, based on some routing criteria, allow for branching in an integration flow, directing messages to different channels (see figure 10.5).
 
@@ -5371,7 +5399,7 @@ In Java DSL form, routers are declared by calling route() in the course of a flo
     }
 ```
 
-### 10.2.5 *Splitters*
+#### 10.2.5 *Splitters*
 
 At times in an integration flow, it can be useful to split a message into multiple messages to be handled independently. Splitters, as illustrated in figure 10.6, will split and handle those messages for you.
 
@@ -5499,7 +5527,7 @@ return IntegrationFlows
  		  .<LineItem> handle(this::handleLineItems)));
 ```
 
-### 10.2.6 *Service activators*
+#### 10.2.6 *Service activators*
 
 Service activators receive messages from an input channel and send those messages to an implementation of MessageHandler, as shown in figure 10.7.
 
@@ -5560,7 +5588,7 @@ public IntegrationFlow orderFlow(OrderRepository orderRepo) {
 
 Also, if you choose to use GenericHandler at the end of a flow, you’ll need to return null, or else you’ll get errors indicating that there’s no output channel specified. 
 
-### 10.2.7 *Gateways*
+#### 10.2.7 *Gateways*
 
 Gateways are the means by which an application can submit data into an integration flow and, optionally, receive a response that’s the result of the flow. Implemented by Spring Integration, gateways are realized as interfaces that the application can call to send messages to the integration flow (see figure 10.8).
 
@@ -5600,7 +5628,7 @@ public IntegrationFlow uppercaseFlow() {
 }
 ```
 
-### 10.2.8  *Channel adapters*
+#### 10.2.8  *Channel adapters*
 
 Channel adapters represent the entry and exit points of an integration flow. Data enters an integration flow by way of an inbound channel adapter and exits an integration flow by way of an outbound channel adapter. This is illustrated in figure 10.9.
 
@@ -5658,7 +5686,7 @@ public IntegrationFlow fileReaderFlow() {
 
 Service activators, implemented as message handlers, often serve the purpose of an outbound channel adapter, especially when data needs to be handed off to the application itself. 
 
-### 10.2.9 *Endpoint modules*
+#### 10.2.9 *Endpoint modules*
 
 It’s great that Spring Integration lets you create your own channel adapters. But
 
@@ -5703,7 +5731,7 @@ with a variety of common external systems, including those listed in table 10.1.
 
 每个端点模块都提供通道适配器，这些适配器可以在使用Java配置时声明为bean，也可以在使用时通过静态方法引用 Java DSL配置。我鼓励您探索您最感兴趣的任何其他端点模块。你会发现它们的用法是相当一致的。
 
-## 10.3 *Creating an email integration flow*
+### 10.3 *Creating an email integration flow*
 
 In this section, you’ll implement an integration flow that polls the Taco Cloud inbox for taco order emails, parses the emails for order details, and submits the orders to Taco Cloud for handling. In short, the integration flow you’re going to need will use an inbound channel adapter from the email endpoint module to ingest emails from the Taco Cloud inbox into the integration flow.
 
@@ -5992,7 +6020,7 @@ spring:
   web-application-type: none
 ```
 
-## 10.4 Summary
+### 10.4 Summary
 
 * Spring Integration enables the definition of flows through which data can be processed as it enters or leaves an application.
 * Integration flows can be defined in XML, Java, or using a succinct Java DSL configuration style.
@@ -6000,7 +6028,11 @@ spring:
 * Messages can be transformed, split, aggregated, routed, and processed by service activators in the course of a flow.
 * Message channels connect the components of an integration flow.
 
-# 11 Introduce Reactor
+
+
+# Part 3 --- Reactive Spring
+
+## 11 Introduce Reactor
 
 As we develop application code, we can write two styles of code—imperative and reactive, which are described as follows:
 
@@ -6009,7 +6041,7 @@ As we develop application code, we can write two styles of code—imperative and
 
 In this chapter, we’re going to step away from the Taco Cloud application temporarily to explore Project Reactor (https://projectreactor.io/). 
 
-## 11.1  *Understanding reactive programming*
+### 11.1  *Understanding reactive programming*
 
 响应式编程是命令式编程的一种替代范例。响应式编程解决了命令式编程的一些 limitation。
 
@@ -6024,7 +6056,7 @@ Rather than describe a set of steps that are to be performed sequentially, react
 * A water balloon carries its payload all at once, soaking its intended target at the moment of impact. The water balloon has a finite capacity, however, and if you wish to soak more people (or the same person to a greater extent), your only choice is to scale up by increasing the number of water balloons.
 * A garden hose carries its payload as a stream of water that flows from the spigot to the nozzle. The garden hose’s capacity may be finite at any given point in time, but it’s unlimited over the course of a water battle. As long as water is entering the hose from the spigot, it will continue to flow through the hose and spray out of the nozzle. The same garden hose is easily scalable to soak as many friends as you wish.
 
-### 11.1.1  *Defining Reactive Streams*
+#### 11.1.1  *Defining Reactive Streams*
 
 Reactive Streams aims to provide a standard for asynchronous stream processing with nonblocking backpressure.Backpressure is a means by which consumers of data can avoid being overwhelmed by an overly fast data source, by establishing limits on how much they’re willing to handle.
 
@@ -6066,7 +6098,7 @@ public interface Subscription {
 }
 ```
 
-When calling request(), the Subscriber passes in a long value to indicate how many data items it’s willing to accept. This is where backpressure comes in, preventing the Publisher from sending more data than the Subscriber is able to handle. 
+When calling `request()`, the Subscriber passes in a `long` value to indicate how many data items it’s willing to accept. This is where backpressure comes in, preventing the Publisher from sending more data than the Subscriber is able to handle. 
 
 Once the Subscriber has requested data, the data starts flowing through the stream. For every item that’s published by the Publisher, the `onNext()` method will be called to deliver the data to the Subscriber. If there are any errors, `onError()` is called. If the Publisher has no more data to send and isn’t going to produce any
 
@@ -6103,15 +6135,14 @@ public interface Processor<T, R>
 >
 > 
 >
-> 整体工作流程如下：
->
-> - `Publisher` 发布数据流，`Subscriber` 订阅并处理这个数据流。
-> - 当 `Subscriber` 订阅 `Publisher` 时，`Publisher` 会创建一个新的 `Subscription` 对象，并调用 `onSubscribe` 将其传递给 `Subscriber`。
-> - `Subscriber` 可以通过调用 `request` 方法请求数据，`Publisher` 会相应地推送数据给 `Subscriber`。
-> - 当数据流结束或出现错误时，`Publisher` 会调用相应的方法通知 `Subscriber`。
-> - `Transformer` 可以用于对数据流进行转换，返回一个新的 `Publisher`，使得数据流可以经过一系列的中间操作后再到达 `Subscriber`。
+> - 整体流程如下：
+>  - `Subscriber` 调用 `subscribe` 方法订阅了某个 `Publisher`。
+>   - `Publisher` 在 `subscribe` 方法中创建一个新的 `Subscription` 对象，并调用 `onSubscribe` 方法将其传递给 `Subscriber`。
+>   - `Subscriber` 在 `onSubscribe` 方法中获得了 `Subscription` 对象，并可以通过该对象调用 `request` 方法请求数据。
+>   - `Publisher` 接收到 `request` 请求后，开始推送数据给 `Subscriber`，调用 `onNext` 方法。
+>   - 数据流结束时，`Publisher` 调用 `onComplete` 方法通知 `Subscriber` 数据流结束，或者在发生错误时调用 `onError` 方法通知 `Subscriber` 出现错误。
 
-## 11.2  *Getting started with Reactor*
+### 11.2  *Getting started with Reactor*
 
 Reactive programming requires us to think in a very different way from imperative programming. Rather than describe a set of steps to be taken, reactive programming means building a pipeline through which data will flow. As data passes through the pipeline, it can be altered or used in some way.
 
@@ -6133,7 +6164,9 @@ Mono.just("Craig")
  	.subscribe(System.out::println);
 ```
 
-The Mono in the example is one of Reactor’s two core types. Flux is the other. Both are implementations of Reactive Streams’ Publisher. A Flux represents a pipeline of zero, one, or many (potentially infinite) data items. A Mono is a specialized reactive type that’s optimized for when the dataset is known to have no more than one data item.
+The `Mono` in the example is one of Reactor’s two core types. `Flux` is the other. Both are implementations of Reactive Streams’ Publisher. A Flux represents a pipeline of zero, one, or many (potentially infinite) data items. A Mono is a specialized reactive type that’s optimized for when the dataset is known to have no more than one data item.
+
+The previous example actually contains three Mono objects. The `just()` operation creates the first one. When the Mono emits a value, that value is given to the map() operation to be capitalized and used to create another Mono. When the second Mono publishes its data, it’s given to the second map() operation to do some String concatenation, the results of which are used to create the third Mono. Finally, the call to subscribe() subscribes to the Mono, receives the data, and prints it.
 
 > Reactor vs. RxJava (ReactiveX)
 >
@@ -6141,9 +6174,9 @@ The Mono in the example is one of Reactor’s two core types. Flux is the other.
 >
 > Although we focus on Reactor in this book, you may be happy to know that it’s possible to covert between Reactor and RxJava types. Moreover, as you’ll see in the following chapters, Spring can also work with RxJava types.
 
-The previous example actually contains three Mono objects. The just() operation creates the first one. When the Mono emits a value, that value is given to the map() operation to be capitalized and used to create another Mono. When the second Mono publishes its data, it’s given to the second map() operation to do some String concatenation, the results of which are used to create the third Mono. Finally, the call to subscribe() subscribes to the Mono, receives the data, and prints it.
 
-### 11.2.1 *Diagramming reactive flows*
+
+#### 11.2.1 *Diagramming reactive flows*
 
 Reactive flows are often illustrated with marble diagrams. Marble diagrams, in their simplest form, depict a timeline of data as it flows through a Flux or Mono at the top, an operation in the middle, and the timeline of the resulting Flux or Mono at the bottom. Figure 11.1 shows a marble diagram template for a Flux. As you can see, as data flows through the original Flux, it’s processed through some operation, resulting in a new Flux through which the processed data flows.
 
@@ -6153,7 +6186,7 @@ Figure 11.2 shows a similar marble diagram, but for a Mono. As you can see, the 
 
 ![image-20231205223808137](Spring.assets/image-20231205223808137.png)
 
-### 11.2.2 *Adding Reactor dependencies*
+#### 11.2.2 *Adding Reactor dependencies*
 
 To get started with Reactor, add the following dependency to the project build:
 
@@ -6190,7 +6223,7 @@ I’m assuming that you’re adding these dependencies to a Spring Boot project,
 </dependencyManagement>
 ```
 
-## 11.3 *Applying common reactive operations*
+### 11.3 *Applying common reactive operations*
 
 Flux and Mono are the most essential building blocks provided by Reactor, and the operations those two reactive types offer are the mortar that binds them together to create pipelines through which data can flow. Flux and Mono offer more than 500 operations, which can be loosely categorized as follows:
 
@@ -6201,7 +6234,7 @@ Flux and Mono are the most essential building blocks provided by Reactor, and th
 
 Mono 和 Flux 的操作大差不差，所以两个选择一个展示就行了。但是因为 Flux 相比更加有趣，所以后续的例子大多是用 Flux展示的
 
-### 11.3.1 *Creating reactive types*
+#### 11.3.1 *Creating reactive types*
 
 Often when working with reactive types in Spring, you’ll be given a Flux or a Mono from a repository or a service, so you won’t need to create one yourself. But occasionally you’ll need to create a new reactive publisher.
 
@@ -6357,7 +6390,7 @@ The following test method demonstrates how to create a range Flux:
 
 输出的值从0开始，每秒钟输出一个
 
-### 11.3.2  *Combining reactive types*
+#### 11.3.2  *Combining reactive types*
 
 有时候你需要将两个响应式类型合并成一个，或者是将一个响应式类型拆封成两个甚至更多。In this section, we’ll examine operations that combine and split Reactor’s Flux and Mono.
 
@@ -6482,7 +6515,7 @@ Suppose you have two Flux objects, and rather than merge them together, you mere
 
 
 
-### 11.3.3 *Transforming and filtering reactive streams*
+#### 11.3.3 *Transforming and filtering reactive streams*
 
 As data flows through a stream, you’ll likely need to filter out some values and modify other values. In this section, we’ll look at operations that transform and filter the data flowing through a reactive stream.
 
@@ -6558,6 +6591,8 @@ For more general-purpose filtering of Flux values, you’ll find the `filter()` 
 ```
 
 The distinct() operation, as illustrated in figure 11.15, results in a Flux that publishes only items from the source Flux that haven’t already been published.可以理解为去重
+
+![image-20231211223230489](Spring.assets/image-20231211223230489.png)
 
 ```java
     @Test
@@ -6753,7 +6788,7 @@ An even more interesting way of collecting items emitted by a Flux is to collect
 
 In the event that two animal names start with the same letter (as with *elephant* and *eagle* or *koala* and *kangaroo*), the last entry flowing through the stream overrides any earlier entries. 
 
-### 11.3.4  *Performing logic operations on reactive types*
+#### 11.3.4  *Performing logic operations on reactive types*
 
 Sometimes you just need to know if the entries published by a Mono or Flux match some criteria. The all() and any() operations perform such logic. Figures 11.21 and 11.22 illustrate how all() and any() work.
 
@@ -6799,16 +6834,16 @@ public void any() {
     }
 ```
 
-## 11.4 *Summary*
+### 11.4 *Summary*
 
 * Reactive programming involves creating pipelines through which data flows.
 * The Reactive Streams specification defines four types: Publisher, Subscriber, Subscription, and Transformer (which is a combination of Publisher and Subscriber).
 * Project Reactor implements Reactive Streams and abstracts stream definitions into two primary types, Flux and Mono, each of which offers several hundred operations.
 * Spring leverages Reactor to create reactive controllers, repositories, REST clients, and other reactive framework support.
 
-# 12 Developing reactive APIs
+## 12 Developing reactive APIs
 
-## 12.1 *Working with Spring WebFlux*
+### 12.1 *Working with Spring WebFlux*
 
 Latency in slow worker threads makes things even worse because it’ll take longer for the worker thread to be returned to the pool, ready to handle another request. 
 
@@ -6824,7 +6859,7 @@ Asynchronous web frameworks, in contrast, achieve higher scalability with fewer 
 
 Spring offers a nonblocking, asynchronous web framework based largely on its Project Reactor to address the need for greater scalability in web applications and APIs.
 
-### 12.1.1  *Introducing Spring WebFlux*
+#### 12.1.1  *Introducing Spring WebFlux*
 
 Instead of trying to shoehorn a reactive programming model into Spring MVC, the Spring team decided to create a separate reactive web framework, borrowing as much from Spring MVC as possible. Spring WebFlux is the result. Figure 12.2 illustrates the complete web development stack available in Spring.
 
@@ -6855,7 +6890,7 @@ Aside from using a different starter dependency, Spring WebFlux controller metho
 >
 > The difference is in how those types are used. Whereas Spring WebFlux is a truly reactive web framework, allowing for requests to be handled in an event loop, Spring MVC is servlet-based, relying on multithreading to handle multiple requests
 
-## 12.1.2  *Writing reactive controllers*
+#### 12.1.2  *Writing reactive controllers*
 
 这是第七章的写法，返回的是一个 domain types 的集合：
 
@@ -6999,7 +7034,7 @@ By accepting a Mono<Taco> as input, the method is invoked immediately without wa
 
 
 
-## 12.2 *Defining functional request handlers*
+### 12.2 *Defining functional request handlers*
 
 This new programming model is used more like a library and less like a framework, letting you map requests to handler code without annotations. Writing an API using Spring’s functional programming model involves the following four primary types:
 
@@ -7115,11 +7150,18 @@ public class RouterFunctionConfig {
 
 对于了解 函数式请求处理程序 这段代码很值得细看
 
-## 12.3 *Testing reactive controllers*
+`route()`方法接受两个参数：
+
+1. **路由条件（Route Predicate）**: 这是定义请求应该如何匹配的条件。在示例中，`GET("/api/tacos").and(queryParam("recent", t->t != null))`表示当收到GET请求，路径是"/api/tacos"且包含非空的"recent"查询参数时，该条件将匹配。
+2. **处理函数（Handler Function）**: 这是在满足路由条件时要执行的功能。在示例中，`this::recents`和`this::postTaco`是两个处理函数，分别用于处理GET和POST请求。
+
+
+
+### 12.3 *Testing reactive controllers*
 
 Spring has introduced WebTestClient, a new test utility that makes it easy to write tests for reactive controllers written with Spring WebFlux.
 
-### 12.3.1 *Testing GET requests*
+#### 12.3.1 *Testing GET requests*
 
 ```java
 package tacos.web.api;
@@ -7221,7 +7263,7 @@ testClient.get().uri("/api/tacos?recent")
             .contains(Arrays.copyOf(tacos, 12));
 ```
 
-### 12.3.2 *Testing POST requests*
+#### 12.3.2 *Testing POST requests*
 
 WebTestClient can do more than just test GET requests against controllers. It can also be used to test any kind of HTTP method. Table 12.1 maps HTTP methods to WebTestClient methods.
 
@@ -7257,7 +7299,7 @@ WebTestClient can do more than just test GET requests against controllers. It ca
 
 
 
-### 12.3.3 *Testing with a live server*
+12.3.3 *Testing with a live server*
 
 You may need to test a WebFlux controller in the context of a server like Netty or Tomcat and maybe with a repository or other dependencies. That is to say, you may want to write an integration test.
 
@@ -7305,7 +7347,7 @@ You’ll notice that you’ve also autowired a WebTestClient into the test class
 
 You no longer need to create a WebTestClient because you’ll be making use of the autowired instance. And you don’t have to mock TacoRepository because Spring will create an instance of TacoController and inject it with a real TacoRepository. 
 
-## 12.4 *Consuming REST APIs reactively*
+### 12.4 *Consuming REST APIs reactively*
 
 Spring offers WebClient as a reactive alternative to RestTemplate. WebClient lets you both send and receive reactive types when making requests to external APIs.
 
@@ -7317,7 +7359,7 @@ Using WebClient is quite different from using RestTemplate. Rather than having s
 * Submit the request
 * Consume the response
 
-### 12.4.1 *GETting resources*
+#### 12.4.1 *GETting resources*
 
 As an example of WebClient usage, suppose that you need to fetch an Ingredient object by its ID from the Taco Cloud API. Using RestTemplate, you might use the getForObject() method. But with WebClient, you build the request, retrieve a response, and then extract a Mono that publishes the Ingredient object, as shown here:
 
@@ -7411,7 +7453,7 @@ Flux<Ingredient> ingredients = webclient
 
 指定持续时间为1秒。如果请求可以在不到1秒的时间内完成，那么就没有问题。但是，如果请求花费的时间超过1秒，则会超时，并调用作为subscribe()的第二个参数给出的错误处理程序。
 
-### 12.4.2 *Sending resources*
+#### 12.4.2 *Sending resources*
 
 If you have a Mono<Ingredient> and want to send a POST request with the Ingredient that’s published by the Mono to the URI with a relative path of /ingredients. All you must do is use the post() method instead of get() and specify that the Mono is to be used to populate the request body by calling body() as follows:
 
@@ -7455,7 +7497,7 @@ Instead of a POST request, if you want to update an Ingredient with a PUT reques
 
 PUT requests typically have empty response payloads, so you must ask bodyToMono() to ==return a Mono of type Void==. On subscribing to that Mono, the request will be sent. 
 
-### 12.4.3 *Deleting resources*
+#### 12.4.3 *Deleting resources*
 
 WebClient also allows the removal of resources by way of its delete() method. 
 
@@ -7470,7 +7512,7 @@ WebClient also allows the removal of resources by way of its delete() method.
 
 Once again, you return and subscribe to a Mono<Void> to send the request. 
 
-### 12.4.4 *Handling errors*
+#### 12.4.4 *Handling errors*
 
 如果返回任何一种 error statues ，WebClient将记录失败并继续运行。
 
@@ -7524,7 +7566,7 @@ Note that HttpStatus::is4xxClientError is a method reference to the is4xxClientE
             .bodyToMono(Ingredient.class);
 ```
 
-### 12.4.5 *Exchanging requests*
+#### 12.4.5 *Exchanging requests*
 
 在前面我们已经使用过 retrieve() 方法了，In those cases, the retrieve() method returned an object of type `ResponseSpec`, through which you were able to handle the response with calls to methods such as onStatus(), bodyToFlux(), and bodyToMono().`ResponseSpec`在某些方面有限制：If you need access to the response’s headers or cookie values , for example, then ResponseSpec isn’t going to work for you.
 
@@ -7566,7 +7608,7 @@ Let’s see what makes exchangeToMono() different from retrieve().Let’s suppos
             .flatMap(cr -> cr.bodyToMono(Ingredient.class));
 ```
 
-## 12.5 *Securing reactive web APIs*
+### 12.5 *Securing reactive web APIs*
 
 It’s true that using servlet filters isn’t an option when securing a Spring WebFlux application. But Spring Security is still up to the task. Starting with version 5.0.0, you can use Spring Security to secure both servlet-based Spring MVC and reactive Spring WebFlux applications. 
 
@@ -7579,7 +7621,7 @@ Spring Security comes as the same Spring Boot security starter, regardless of wh
 </dependency>
 ```
 
-### 12.5.1 *Configuring reactive web security*
+#### 12.5.1 *Configuring reactive web security*
 
 下面是Spring MVC的 Security Configuration:
 
@@ -7628,31 +7670,30 @@ ServerHttpSecurity is new to Spring Security 5 and is the reactiveanalog to Http
 
 Finally, because you’re declaring the SecurityWebFilterChain as a bean instead of overriding a framework method, you must call the build() method to assemble all of the security rules into the SecurityWebFilterChain to be returned.
 
-### 12.5.2 *Configuring a reactive user details service*
+#### 12.5.2 *Configuring a reactive user details service*
 
 SpringMVC的调用 UserDetails：
 
 ```java
 @Autowired
-  UserRepository userRepo;
-  @Override
-  protected void
-  configure(AuthenticationManagerBuilder auth)
-          throws Exception {
-    auth
-            .userDetailsService(new UserDetailsService() {
-              @Override
-              public UserDetails loadUserByUsername(String username)
-                      throws UsernameNotFoundException {
-                User user = userRepo.findByUsername(username)
-                if (user == null) {
-                  throw new UsernameNotFoundException(
-                          username " + not found")
-                }
-                return user.toUserDetails();
-              }
-            });
-  }
+    UserRepository userRepo;
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth)
+            throws Exception {
+        auth
+                .userDetailsService(new UserDetailsService() {
+                    @Override
+                    public UserDetails loadUserByUsername(String username)
+                            throws UsernameNotFoundException {
+                        User user = userRepo.findByUsername(username);
+                        if (user == null) {
+                            throw new UsernameNotFoundException(
+                                    username+ " + not found");
+                        }
+                        return user.toUserDetails();
+                    }
+                });
+    }
 ```
 
 In this nonreactive configuration, you override the only method required by UserDetailsService: loadUserByUsername(). Inside of that method, you use the given UserRepository to look up the user by the given username. If the name isn’t found, you throw a UsernameNotFoundException. But if it’s found, then you call a helper method, toUserDetails(), to return the resulting UserDetails object.
@@ -7679,7 +7720,7 @@ Here, a Mono<UserDetails> is returned as required, but the UserRepository.findBy
 
 If findByUsername() can’t find a matching user, then the Mono returned will be empty, indicating no match and resulting in a failure to authenticate. 
 
-## 12.6 *Summary*
+### 12.6 *Summary*
 
 * Spring WebFlux offers a reactive web framework whose programming model mirrors that of Spring MVC and even shares many of the same annotations.
 * Spring also offers a functional programming model as an alternative to Spring WebFlux’s annotation-based programming model.
@@ -7687,11 +7728,11 @@ If findByUsername() can’t find a matching user, then the Mono returned will be
 * On the client side, Spring offers WebClient, a reactive analog to Spring’s RestTemplate.
 * Although WebFlux has some significant implications for the underlying mechanisms for securing a web application, Spring Security 5 supports reactive security with a programming model that isn’t dramatically different from nonreactive Spring MVC applications.
 
-# 13 *Persisting data reactively*
+## 13 *Persisting data reactively*
 
-Let’s start by looking at Spring Data R2DBC, a reactive alternative to Spring Data JDBC for persistence to relational databases.
+Let’s start by looking at Spring Data R2DBC, a reactive alternative to Spring Data JDBC for persistence to relational databases.  
 
-## 13.1 *Working with R2DBC*
+### 13.1 *Working with R2DBC*
 
 In fact, as you’ll soon see, attempting to persist data through an aggregate root requires a bit more work with Spring Data R2DBC than with Spring Data JDBC.
 
@@ -7720,7 +7761,7 @@ You’ll also need a relational database to persist data to, along with a corres
 </dependency>
 ```
 
-### 13.1.1  *Defining domain entities for R2DBC*
+#### 13.1.1  *Defining domain entities for R2DBC*
 
 To get to know Spring Data R2DBC, we’ll recreate just the persistence layer of the  Taco Cloud application, focusing only on the components that are necessary for persisting taco and order data. This includes creating domain entities for TacoOrder, Taco, and Ingredient, along with corresponding repositories for each.
 
@@ -7749,8 +7790,8 @@ public class Ingredient {
 
 As you can see, this isn’t much different from other incarnations of the Ingredient class that we’ve created before. Note the following two noteworthy differences:
 
-* Spring Data R2DBC requires that properties have setter methods, so rather than define most properties as final, they have to be non-final. But to help Lombok create a required arguments constructor, we annotate most of the properties with @NonNull. This will cause Lombok and the @RequiredArgsConstructor annotation to include those properties in the constructor.
-* When saving an object through a Spring Data R2DBC repository, if the object’s ID property is non-null, it is treated as an update. In the case of Ingredient, the id property was previously typed as String and specified at creation time. But doing that with Spring Data R2DBC results in an error. So, here we shift that String ID to a new property named slug, which is just a pseudo-ID for the Ingredient, and use a Long ID property with a value generated by the database.
+* Spring Data R2DBC requires that properties have setter methods, so rather than define most properties as final, they have to be non-final. But to help Lombok create a required arguments constructor, we annotate most of the properties with `@NonNull`. This will cause Lombok and the `@RequiredArgsConstructor `annotation to include those properties in the constructor.
+* ==When saving an object through a Spring Data R2DBC repository, if the object’s ID property is non-null, it is treated as an update==. In the case of Ingredient, the id property was previously typed as String and specified at creation time. But doing that with Spring Data R2DBC results in an error. So, here we shift that String ID to a new property named slug, which is just a pseudo-ID for the Ingredient, and use a Long ID property with a value generated by the database.
 
 The corresponding database table is defined in schema.sql like this:
 
@@ -7795,7 +7836,7 @@ public class Taco {
 }
 ```
 
-Unlike other Spring Data projects, Spring Data R2DBC doesn’t currently support direct relationships between entities (at least not at this time).所以这里用的集合是 Set<Long> ，而不是Set<Ingredient>
+==Unlike other Spring Data projects, Spring Data R2DBC doesn’t currently support direct relationships between entities (at least not at this time)==.所以这里用的集合是 Set<Long> ，而不是Set<Ingredient>
 
 Until then, we can’t have Taco referencing a collection of Ingredient and expect persistence to just work. Instead, we have the following options when it comes to dealing with relationships:
 
@@ -7880,7 +7921,7 @@ create table Taco_Order (
 
 Oftentimes, a production application already has its schema defined through other means, and such scripts aren’t desirable except for tests. Therefore, this bean is defined in a configuration that is loaded only when running automated tests and isn’t available in the runtime application context. 
 
-### 13.1.2  *Defining reactive repositories*
+#### 13.1.2  *Defining reactive repositories*
 
 Spring Data offers ReactiveCrudRepository for defining reactive repositories.  ReactiveCrudRepository operates very much like CrudRepository. To create a repository, define an interface that extends ReactiveCrudRepository, such as this:
 
@@ -7897,7 +7938,7 @@ public interface OrderRepository
 
 ```
 
-ReactiveCrudRepository 和 CrudRepository 最大的区别在于：its methods return Mono and Flux types instead of a single TacoOrder or Iterable<TacoOrder>. Two examples include the findById() method, which returns a Mono<TacoOrder>, and findAll(), which returns a Flux<TacoOrder>.
+==`ReactiveCrudRepository `和 `CrudRepository` 最大的区别在于==：its methods return Mono and Flux types instead of a single TacoOrder or Iterable<TacoOrder>. Two examples include the findById() method, which returns a Mono<TacoOrder>, and findAll(), which returns a Flux<TacoOrder>.
 
 To see how this reactive repository might work in action, suppose that you want to fetch all TacoOrder objects and print their delivery names to standard output. In that case, you might write some code like the next snippet.
 
@@ -7950,7 +7991,7 @@ public interface IngredientRepository
 
 Because we might need a way to look up Ingredient objects based on a slug value, IngredientRepository includes a findBySlug() method that returns a Mono<Ingredient>.
 
-### 13.1.3  *Testing R2DBC repositories*
+#### 13.1.3  *Testing R2DBC repositories*
 
 Specifically, the @DataR2dbcTest annotation, when placed on a test class, causes Spring to create an application context with the generated Spring Data R2DBC repositories as beans that can be injected into the test class. 
 
@@ -8022,7 +8063,7 @@ But these repositories make persistence of a TacoOrder inconvenient in that we m
 
 It would be nice if we could persist TacoOrder as an aggregate root and have its child Taco objects be persisted along with it. Likewise, it would be great if we could fetch a TacoOrder and have it fully defined with complete Taco objects and not just the IDs. Let’s define a service-level class that sits in front of OrderRepository and TacoRepository to mimic the persistence behavior of chapter 3’s OrderRepository
 
-### 13.1.4 *Defining an OrderRepository aggregate root service*
+#### 13.1.4 *Defining an OrderRepository aggregate root service*
 
 The first step toward persisting TacoOrder and Taco objects together such that TacoOrder is the aggregate root is to add a Taco collection property to the TacoOrder class. This is shown next.
 
@@ -8222,7 +8263,7 @@ Not only does this satisfy the need for a @SpringBootConfiguration-annotated cla
 
 On its own, TacoOrderAggregateServiceTests should pass fine. But in an IDE that may share JVMs and Spring application contexts between test runs, running this test alongside other persistence tests may result in conflicting data being written to the in-memory H2 database. The @DirtiesContext annotation is used here to ensure that the Spring application context is reset between test runs, resulting in a new and empty H2 database on each run.
 
-## 13.2 *Persisting document data reactively with MongoDB*
+### 13.2 *Persisting document data reactively with MongoDB*
 
 To get started, you’ll need to create a project with the Spring Data Reactive MongoDB starter. 
 
@@ -8235,7 +8276,7 @@ To get started, you’ll need to create a project with the Spring Data Reactive 
 
 在第四章里面用的是嵌入式的MongoDB做测试，但是在响应式里面，嵌入式MongoDB有些问题。you’ll need to have an actual Mongo database running and listening on port 27017.
 
-### 13.2.1  *Defining domain document types*
+#### 13.2.1  *Defining domain document types*
 
 ```java
 package tacos;
@@ -8362,7 +8403,7 @@ public class TacoOrder implements Serializable {
 
 ```
 
-### 13.2.2 *Defining reactive MongoDB repositories*
+#### 13.2.2 *Defining reactive MongoDB repositories*
 
 Now we’ll need to define two repositories, one for the TacoOrder aggregate root and another for Ingredient. We won’t need a repository for Taco because it is a child of the TacoOrder root.
 
@@ -8404,7 +8445,7 @@ public interface OrderRepository
 
 ==The only difference between reactive and nonreactive MongoDB repositories is whether they extend ReactiveCrudRepository or CrudRepository==. In choosing to extend ReactiveCrudRepository, however, clients of these repositories must be prepared to deal with reactive types like Flux and Mono. 
 
-### 13.2.3 *Testing reactive MongoDB repositories*
+#### 13.2.3 *Testing reactive MongoDB repositories*
 
 The key to writing tests for MongoDB repositories is to annotate the test class with @DataMongoTest. This annotation performs a function similar to the @DataR2dbcTest annotation that we used earlier in this chapter. It ensures that a Spring application context is created with the generated repositories available as beans to be injected into the test. From there, the test can use those injected repositories to set up test data and perform other operations against the database.
 
@@ -8549,7 +8590,7 @@ public class OrderRepositoryTest {
 
 ```
 
-## 13.3 *Reactively persisting data in Cassandra*
+### 13.3 *Reactively persisting data in Cassandra*
 
 To get started with reactive persistence against a Cassandra database, you’ll need to add the following starter dependency to your project build. 
 
@@ -8583,7 +8624,7 @@ cqlsh> create keyspace tacocloud
 WITH replication = {'class': 'SimpleStrategy', 'replication_factor' : 1};
 ```
 
-### 13.3.1 *Defining domain classes for Cassandra persistence*
+#### 13.3.1 *Defining domain classes for Cassandra persistence*
 
 The choice of reactive versus nonreactive Cassandra persistence makes absolutely no difference in how you define your domain classes.
 
@@ -8817,7 +8858,7 @@ public class TacoUDT {
 }
 ```
 
-### 13.3.2 *Creating reactive Cassandra repositories*
+#### 13.3.2 *Creating reactive Cassandra repositories*
 
 The only key difference that makes the repositories reactive is that the interfaces extend ReactiveCrudRepository
 
@@ -8880,7 +8921,7 @@ public interface OrderRepository
 
 
 
-### 13.3.3  *Testing reactive Cassandra repositories*
+#### 13.3.3  *Testing reactive Cassandra repositories*
 
 At this point, it may not come as a surprise that testing reactive Cassandra repositories is quite similar to how you test reactive MongoDB repositories. 
 
@@ -8957,7 +8998,7 @@ public class IngredientRepositoryTest {
 }
 ```
 
-## 13.4 Summary
+### 13.4 Summary
 
 * Spring Data supports reactive persistence for a variety of database types, including relational databases (with R2DBC), MongoDB, and Cassandra.
 * Spring Data R2DBC offers a reactive option for relational persistence but doesn’t yet directly support relationships in domain classes.
@@ -8967,11 +9008,11 @@ public class IngredientRepositoryTest {
 
 
 
-# 14 Working with RSocket
+## 14 Working with RSocket
 
 In this chapter, we’re going to look at RSocket, a relatively new protocol for interapplication communication that allows for more than simple request-response communication. And because it’s reactive in nature, it can be far more efficient than blocking HTTP requests.
 
-## 14.1 *Introducing RSocket*
+### 14.1 *Introducing RSocket*
 
 RSocket (https://rsocket.io/) is a binary application protocol that is asynchronous and based on Reactive Streams.  Put another way, RSocket offers asynchronous communication between applications that supports a reactive model consistent with reactive types like Flux and Mono that we learned about in chapter 12.
 
@@ -9003,7 +9044,7 @@ Finally, the most flexible of RSocket’s communication models is the ==*channel
 
 RSocket is supported on a variety of languages and platforms, including Java, JavaScript, Kotlin, .NET, Go, and C++.1 Recent versions of Spring offer first-class support for RSocket, making it easy to create servers and clients using familiar Spring idioms.
 
-## 14.2 *Creating a simple RSocket server and client*
+### 14.2 *Creating a simple RSocket server and client*
 
 To get started with RSocket, you’ll need to add the Spring Boot RSocket starter to your project’s build. 
 
@@ -9016,7 +9057,7 @@ To get started with RSocket, you’ll need to add the Spring Boot RSocket starte
 
 This same dependency is needed for both the server and client applications involved in RSocket communication.
 
-### 14.2.1  *Working with request-response*
+#### 14.2.1  *Working with request-response*
 
 Creating an RSocket server in Spring is as simple as creating a controller class, much the same as you would for a web application or REST service. The following controller is an example of an RSocket service that handles greetings from the client and responds with another greeting.
 
@@ -9119,7 +9160,7 @@ The subscribe() method subscribes to the returned Mono and handles its payload b
 
 Here, the message will be sent to the route named "greeting/Craig", which will be handled by the controller handler method whose @MessageMapping specified the route "greeting/{name}". Although you could also hardcode the name in the route or use String concatenation to create the route name, using a placeholder in the client makes it really easy to drop in a value without the messiness of String concatenation.
 
-### 14.2.2 *Handling request-stream messaging*
+#### 14.2.2 *Handling request-stream messaging*
 
 Not all interactions feature a single request and a single response. In a stock quote scenario, for example, it may be useful to request a stream of stock quotes for a given stock symbol. In a request-response model, the client would need to repeatedly poll for the current stock price. But in a request-stream model, the client need ask for the stock price only once and then subscribe to a stream of periodic updates.
 
@@ -9209,7 +9250,7 @@ public class RSocketClientConfiguration {
 
 But what if the server doesn’t have a response to send or the client doesn’t need a response? Let’s see how to deal with the fire-and-forget communication model. 
 
-### 14.2.3 *Sending fire-and-forget messages*
+#### 14.2.3 *Sending fire-and-forget messages*
 
 Imagine that you’re on a starship that has just come under attack from an enemy vessel. You sound a ship-wide “red alert” so that all hands are in battle mode. You don’t need to wait for a response from the ship’s computers affirming the alert status, nor do you have time to wait for and read any kind of response in this situation. You set the alert and then move on to more critical matters.
 
@@ -9303,7 +9344,7 @@ public class RSocketClientConfiguration {
 
 Notice, however, that instead of calling retrieveMono() or retrieveFlux(), the client merely calls send() with no expectation of a response.
 
-### 14.2.4 *Sending messages bidirectionally*
+#### 14.2.4 *Sending messages bidirectionally*
 
 In the channel communication model, the client can stream multiple requests to the server, which may also stream back multiple responses in a bidirectional conversation between both sides. It’s the most flexible of RSocket’s communication models, although also the most complex.
 
@@ -9448,7 +9489,7 @@ Table 14.1The supported RSocket model is determined by the handler method’s pa
 | Fire-and-forget  | Mono              | Mono<Void>      |
 | Channel          | Flux              | Flux            |
 
-## 14.3  *Transporting RSocket over WebSocket*
+### 14.3  *Transporting RSocket over WebSocket*
 
 By default, RSocket communication takes place over a TCP socket. But in some cases, TCP isn’t an option. Consider the following two situations:
 
@@ -9497,7 +9538,7 @@ RSocketRequester requester = requesterBuilder.websocket(
 
 And that’s all there is to transporting RSocket over WebSocket！
 
-## 1.4 *Summary*
+### 14.4 *Summary*
 
 * RSocket is an asynchronous binary protocol that offers four communication models: request-response, request-stream, fire-and-forget, and channel.
 * Spring supports RSocket on the server through controllers and handler methods annotated with @MessageHandler.
@@ -9505,37 +9546,2162 @@ And that’s all there is to transporting RSocket over WebSocket！
 * In both cases, Spring’s RSocket support works through Reactor’s Flux and Mono reactive types for fully reactive communication.
 * RSocket communication takes place over TCP by default but can also be transported over WebSocket to deal with firewall constraints and browser clients.
 
+# Part 4 --- Deployed Spring
+
+## 15 working with Spring Boot Actuator
+
+If only there were some way that you could peek inside a running application, see how it’s behaving, check on its health, and maybe even trigger operations that influence how it runs!
+
+### *15.1 Introducing Actuator*
+
+In a Spring Boot application, the Spring Boot Actuator plays that same role, enabling us to see inside of a running application and, to some degree, control how the application behaves.
+
+Using endpoints exposed by Actuator, we can ask things about the internal state of a running Spring Boot application, such as the following:
+
+* What configuration properties are available in the application environment?
+* What are the logging levels of various packages in the application?
+* How much memory is being consumed by the application?
+* How many times has a given HTTP endpoint been requested?
+* What is the health of the application and any external services it coordinates with?
+
+To enable Actuator in a Spring Boot application, you simply need to add Actuator’s starter dependency to your build. 
+
+```xml
+<dependency>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+
+
+Once the Actuator starter is part of the project build, the application will be equipped with several out-of-the-box Actuator endpoints, including those described in table 15.1.
+
+![image-20231216231957999](Spring.assets/image-20231216231957999.png)
+
+![image-20231216232006041](Spring.assets/image-20231216232006041.png)
+
+In addition to HTTP endpoints, all of the Actuator endpoints in table 15.1, with the lone exception of /heapdump, are also exposed as JMX MBeans. 
+
+#### 15.1.1 *Configuring Actuator’s base path*
+
+By default, the paths for all the endpoints shown in table 15.1 are ==prefixed with /actuator.== This mean that, for example, if you wish to retrieve health information about your application from Actuator, then issuing a GET request for ==/actuator/health== will return the information you need.
+
+The Actuator prefix path can be changed by setting the ==management.endpoint.web.base-path property==. For example, if you’d rather the prefix be /management, you would set the management.endpoints.web.base-path property like this:
+
+```yaml
+management:
+  endpoints:
+    web:
+      base-path: /management
+```
+
+With this property set as shown, you’d need to make a GET request for ==/management/health== to obtain the application’s health information.
+
+#### *15.1.2 Enabling and disabling Actuator endpoints*
+
+You may have noticed that only the /health endpoint is enabled by default.因为大多数其他的 endpoint 携带敏感信息，需要被加密。 You can use Spring Security to lock down Actuator, but because Actuator isn’t secured on its own, most of the endpoints are disabled by default, requiring you to opt in for the endpoints you wish to expose.
+
+Use management.endpoints.web.exposure.include to specify which endpoints you want to expose. For example, if you wish to expose only the /health, /info, /beans, and /conditions endpoints, you can specify that with the following configuration:
+
+```yaml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,beans,conditions
+```
+
+The management.endpoints.web.exposure.include property also accepts an asterisk (*) as a wildcard to indicate that all Actuator endpoints should be exposed, as shown here:
+
+```yaml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+```
+
+If you want to expose all but a few endpoints, it’s typically easier to include them all with a wildcard and then explicitly exclude a few. For example, to expose all Actuator endpoints except for /threaddump and /heapdump,
+
+```yaml
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        exclude: threaddump,heapdump
+```
+
+
+
+### 15.2 Consuming Actuator endpoints
+
+As HTTP endpoints, these can be consumed like any REST API, using whatever HTTP client you wish, including Spring’s RestTemplate and WebClient, from a JavaScript application, or simply with the curl command-line client. 
+
+To get some idea of what endpoints Actuator has to offer, a GET request to Actuator’s base path will provide HATEOAS links for each of the endpoints. 
+
+```json
+$ curl localhost:8080/actuator
+{
+ 	"_links": {
+ 	 "self": {
+		 "href": "http:/ /localhost:8080/actuator",
+ 		"templated": false
+ 	 },
+ 	"auditevents": {
+ 	 "href": "http:/ /localhost:8080/actuator/auditevents",
+ 		"templated": false
+ 	 },
+ 	"beans": {
+ 	 "href": "http:/ /localhost:8080/actuator/beans",
+ 		"templated": false
+ 	 },
+ 	"health": {
+ 	 "href": "http:/ /localhost:8080/actuator/health",
+         "templated": false
+ 	},
+	 ...
+ }
+}
+```
+
+
+
+In any event, the set of links returned from Actuator’s base path serve as a map to all that Actuator has to offer. Let’s begin our exploration of the Actuator landscape with the two endpoints that provide essential information about an application: them /health and /info endpoints.
+
+
+
+#### 15.2.1 *Fetching essential application information*
+
+The /info endpoint tells you a little about the application, and the /health endpoint tells you how healthy the application is.
+
+==ASKING FOR INFORMATION ABOUT AN APPLICATION==
+
+To learn a little bit of information about a running Spring Boot application, you can ask the /info endpoint. By default, however, the /info endpoint isn’t very informative.
+
+```txt
+$ curl localhost:8080/actuator/info
+{}
+```
+
+
+
+We have several ways to supply information for the /info endpoint to return, but the most straightforward way is to create one or more configuration properties where the property name is prefixed with info. For example, suppose that you want the response from the /info endpoint to include support contact information, including an email address and phone number.
+
+```txt
+info:
+ contact:
+ 	email: support@tacocloud.com
+ 	phone: 822-625-6831
+```
+
+然后响应就会被赋值：
+
+```json
+{
+  "contact": {
+ 	"email": "support@tacocloud.com",
+	"phone": "822-625-6831"
+  }
+}
+```
+
+
+
+==INSPECTING APPLICATION HEALTH==
+
+Issuing an HTTP GET request for the /health endpoint results in a simple JSON response with the health status of your application.
+
+```txt
+$ curl localhost:8080/actuator/health
+{"status":"UP"}
+```
+
+
+
+As it turns out, the status shown here is an aggregate status of one or more health indicators. Health indicators report the health of external systems that the application interacts with, such as databases, message brokers, and even Spring Cloud components such as Eureka and the Config Server. The health status of each indicator could be one of the following:
+
+* *UP*—The external system is up and is reachable.
+* *DOWN*—The external system is down or unreachable.
+* *UNKNOWN*—The status of the external system is unclear.
+* *OUT_OF_SERVICE*—The external system is reachable but is currently unavailable.
+
+The health statuses of all health indicators are then aggregated into the application’s overall health status, applying the following rules:
+
+* If all health indicators are UP, then the application health status is UP.
+* If one or more health indicators are DOWN, then the application health status is DOWN.
+* If one or more health indicators are OUT_OF_SERVICE, then the application health status is OUT_OF_SERVICE.
+* ==UNKNOWN health statuses are ignored and aren’t rolled into the application’s aggregate health.==
+
+By default, only the aggregate status is returned in response to a request for /health. You can configure the management.endpoint.health.show-details property, however, to show the full details of all health indicators, as shown next:
+
+```yaml
+management:
+  endpoint:
+    health:
+      show-details: always
+```
+
+never --- by default
+
+always --- always show the full details of all health indicators
+
+when-authorized ---  show the full details only when the requesting client is fully authorized.
+
+```json
+  {
+    "status": "UP",
+    "details": {
+      "mongo": {
+        "status": "UP",
+        "details": {
+          "version": "3.5.5"
+        }
+      },
+      "diskSpace": {
+        "status": "UP",
+        "details": {
+          "total": 499963170816,
+          "free": 177284784128,
+          "threshold": 10485760
+        }
+      }
+    }
+  }
+```
+
+All applications, regardless of any other external dependencies, will have a health indicator for the filesystem named diskSpace. ==The diskSpace health indicator indicates the health of the filesystem (hopefully, UP), which is determined by how much free space is remaining. If the available disk space drops below the threshold, it will report a status of DOWN.==
+
+Autoconfiguration ensures that only health indicators that are pertinent to an application will appear in the response from the /health endpoint. 
+
+#### 15.2.2  *Viewing configuration details*
+
+What beans are in the application context? What autoconfiguration conditions passed or failed? What environment properties are available to the application? How are HTTP requests mapped to controllers? What logging level are one or more packages or classes set to?
+
+These questions are answered by Actuator’s /beans, /conditions, /env, /configprops, /mappings, and /loggers endpoints. And in some cases, such as /env and /loggers, you can even adjust the configuration of a running application on the fly
+
+==GETTING A BEAN WIRING REPORT==
+
+The most essential endpoint for exploring the Spring application context is the ==/beans== endpoint. This endpoint returns a JSON document describing every single bean in the application context, its Java type, and any of the other beans it’s injected with.
+
+完整的 response 太多了，这里只截取部分来自/bean 的 response：
+
+```json
+{
+  "contexts": {
+    "application-1": {
+      "beans": {
+...
+        "ingredientsController": {
+          "aliases": [ ],
+          "scope": "singleton",
+          "type": "tacos.ingredients.IngredientsController",
+          "resource": "file [/Users/habuma/Documents/Workspaces/
+            TacoCloud/ingredient-service/target/classes/tacos/
+            ingredients/IngredientsController.class]",
+          "dependencies": [
+            "ingredientRepository"
+          ]
+        },
+...
+      },
+      "parentId": null
+    }
+  }
+}
+```
+
+At the root of the response is the *contexts* element, which includes one subelement for each Spring application context in the application. Within each application context is a beans element that holds details for all the beans in the application context.
+
+==EXPLAINING AUTOCONFIGURATION==
+
+You can make a GET request to /conditions to get an explanation of what took place in autoconfiguration.
+
+The autoconfiguration report returned from /conditions is divided into three parts: ==positive matches== (conditionalconfiguration that passed), ==negative matches== (conditional configuration that failed), and unconditional classes. 
+
+```json
+{
+  "contexts": {
+    "application-1": {
+      "positiveMatches": {
+...
+        "MongoDataAutoConfiguration#mongoTemplate": [
+          {
+            "condition": "OnBeanCondition",
+            "message": "@ConditionalOnMissingBean (types:
+                org.springframework.data.mongodb.core.MongoTemplate;
+                SearchStrategy: all) did not find any beans"
+          }
+        ],
+...
+      },
+      "negativeMatches": {
+...
+        "DispatcherServletAutoConfiguration": {
+          "notMatched": [
+            {
+              "condition": "OnClassCondition",
+              "message": "@ConditionalOnClass did not find required
+              class 'org.springframework.web.servlet.DispatcherServlet'"
+            }
+          ],
+          "matched": []
+        },
+...
+      },
+      "unconditionalClasses": [
+...
+        "org.springframework.boot.autoconfigure.context.
+              ConfigurationPropertiesAutoConfiguration",
+...
+      ]
+    }
+  }
+}
+```
+
+Under the positiveMatches section, you see that a MongoTemplate bean was configured by autoconfiguration because one didn’t already exist. ==The autoconfiguration that caused this includes a `@ConditionalOnMissingBean` annotation, which passes off the bean to be configured if it hasn’t already been explicitly configured.== But in this case, no beans of type MongoTemplate were found, so autoconfiguration stepped in and configured one.
+
+Under negativeMatches, Spring Boot autoconfiguration considered configuring a DispatcherServlet. But the `@ConditionalOnClass` conditional annotation failed because DispatcherServlet couldn’t be found.
+
+最后，无条件配置当中有 AutoConfiguration 。Configuration properties are foundational to how Spring Boot operates, so you should autoconfigure any configuration pertaining to configuration properties without any conditions. 
+
+==INSPECTING THE ENVIRONMENT AND CONFIGURATION PROPERTIES==
+
+When you issue a GET request to the /env endpoint, you’ll receive a rather lengthy response that includes properties from all property sources in play in the Spring application. 
+
+下面是删减的 /env response：
+
+```json
+$ curl localhost:8080/actuator/env
+{
+  "activeProfiles": [
+    "development"
+  ],
+  "propertySources": [
+...
+    {
+      "name": "systemEnvironment",
+      "properties": {
+        "PATH": {
+          "value": "/usr/bin:/bin:/usr/sbin:/sbin",
+          "origin": "System Environment Property \"PATH\""
+        },
+...
+        "HOME": {
+          "value": "/Users/habuma",
+          "origin": "System Environment Property \"HOME\""
+        }
+      }
+    },
+    {
+      "name": "applicationConfig: [classpath:/application.yml]",
+      "properties": {
+        "spring.application.name": {
+          "value": "ingredient-service",
+          "origin": "class path resource [application.yml]:3:11"
+        },
+        "server.port": {
+          "value": 8080,
+          "origin": "class path resource [application.yml]:9:9"
+        },
+...
+      }
+    },
+...
+  ]
+}
+```
+
+
+
+The /env endpoint can also be used to fetch a specific property when that property’s name is given as the second element of the path. For example, to examine the server.port property, submit a GET request for /env/server.port, as shown here:
+
+```yaml
+$ curl localhost:8080/actuator/env/server.port
+{
+  "property": {
+    "source": "systemEnvironment", "value": "8080"
+  },
+  "activeProfiles": [ "development" ],
+  "propertySources": [
+    { "name": "server.ports" },
+    { "name": "mongo.ports" },
+    { "name": "systemProperties" },
+    { "name": "systemEnvironment",
+      "property": {
+        "value": "8080",
+        "origin": "System Environment Property \"SERVER_PORT\""
+      }
+    },
+    { "name": "random" },
+    { "name": "applicationConfig: [classpath:/application.yml]",
+      "property": {
+        "value": 0,
+        "origin": "class path resource [application.yml]:9:9"
+      }
+    },
+    { "name": "springCloudClientHostInfo" },
+    { "name": "refresh" },
+    { "name": "defaultProperties" },
+    { "name": "Management Server" }
+  ]
+}
+```
+
+only those that set the specified property will contain any additional information.
+
+The /env endpoint can be used for more than just reading property values. By submitting a POST request to the /env endpoint, along with a JSON document with name and value fields, you can also set properties in the running application. 
+
+```txt
+$ curl localhost:8080/actuator/env \
+		-d'{"name":"tacocloud.discount.code","value":"TACOS1234"}' \
+		-H "Content-type: application/json"
+{"tacocloud.discount.code":"TACOS1234"}
+```
+
+After submitting the property, the newly set property and its value are returned in the response. Later, should you decide you no longer need that property, you can submit a DELETE request to the /env endpoint :
+
+```txt
+$ curl localhost:8080/actuator/env -X DELETE
+{"tacocloud.discount.code":"TACOS1234"}
+```
+
+It’s important to be aware that any properties set with a POST request to the /env endpoint apply only to the application instance receiving the request, are temporary, and will be lost when the application restarts. 
+
+==NAVIGATING HTTP REQUEST MAPPINGS==
+
+Actuator’s /mappings endpoint offers a one-stop view of every HTTP request handler in an application, whether it be from a Spring MVC controller or one of Actuator’s own endpoints. 
+
+```json
+{
+  "contexts": {
+    "application-1": {
+      "mappings": {
+        "dispatcherHandlers": {
+          "webHandler": [
+...
+            {
+              "predicate": "{[/ingredients],methods=[GET]}",
+              "handler": "public
+              reactor.core.publisher.Flux<tacos.ingredients.Ingredient>
+              tacos.ingredients.IngredientsController.allIngredients()",
+              "details": {
+                "handlerMethod": {
+                  "className": "tacos.ingredients.IngredientsController",
+                  "name": "allIngredients",
+                  "descriptor": "()Lreactor/core/publisher/Flux;"
+                },
+                "handlerFunction": null,
+                "requestMappingConditions": {
+                  "consumes": [],
+                  "headers": [],
+                  "methods": [
+                    "GET"
+                  ],
+                  "params": [],
+                  "patterns": [
+                    "/ingredients"
+                  ],
+                  "produces": []
+                }
+              }
+            },
+...
+          ]
+        }
+      },
+      "parentId": "application-1"
+    },
+    "bootstrap": {
+      "mappings": {
+        "dispatcherHandlers": {}
+      },
+      "parentId": null
+    }
+  }
+}
+```
+
+Specifically, it shows that GET requests for /ingredients will be handled by the allIngredients() method of IngredientsController. 
+
+==MANAGING LOGGING LEVELS==
+
+Logging levels are typically applied on a package-by-package basis. If you’re ever wondering what logging levels are set in your running Spring Boot application, you can issue a GET request to the /loggers endpoint. 
+
+```json
+{
+  "levels": [ "OFF", "ERROR", "WARN", "INFO", "DEBUG", "TRACE" ],
+  "loggers": {
+    "ROOT": {
+      "configuredLevel": "INFO", "effectiveLevel": "INFO"
+    },
+...
+    "org.springframework.web": {
+      "configuredLevel": null, "effectiveLevel": "INFO"
+    },
+...
+    "tacos": {
+      "configuredLevel": null, "effectiveLevel": "INFO"
+    },
+    "tacos.ingredients": {
+      "configuredLevel": null, "effectiveLevel": "INFO"
+    },
+    "tacos.ingredients.IngredientServiceApplication": {
+      "configuredLevel": null, "effectiveLevel": "INFO"
+    }
+  }
+}
+```
+
+The effectiveLevel property gives the effective logging level, which may have been inherited from a parent package or from the root logger.
+
+If you’d rather focus your request on a specific package, you can specify the package name as an extra path component in the request.
+
+For example, if you just want to know what logging levels are set for the tacocloud.ingredients package, you can make a request to /loggers/tacos.ingredients as follows:
+
+```json
+{
+ "configuredLevel": null,
+ "effectiveLevel": "INFO"
+}
+```
+
+Aside from returning the logging levels for the application packages, the /loggers endpoint also allows you to change the configured logging level by issuing a POST request. 
+
+```txt
+$ curl localhost:8080/actuator/loggers/tacos/ingredients \
+ 		-d'{"configuredLevel":"DEBUG"}' \
+ 		-H"Content-type: application/json"
+```
+
+But what’s most important is that if any code in that package logs anything at debug level, the log files will include that debug-level information. 
+
+#### 15.2.3  *Viewing application activity*
+
+It can be useful to keep an eye on activity in a running application, including the kinds of HTTP requests that the application is handling and the activity of all of the threads in the application. For this, Actuator provides the /httptrace, /threaddump, and /heapdump endpoints.
+
+==TRACING HTTP ACTIVITY==
+
+The ==/httptrace== endpoint reports details on the most recent 100 requests handled by an application. Details included are the request method and path, a timestamp indicating when the request was handled, headers from both the request and the response, and the time taken handling the request.
+
+```json
+{
+  "traces": [
+    {
+      "timestamp": "2020-06-03T23:41:24.494Z",
+      "principal": null,
+      "session": null,
+      "request": {
+        "method": "GET",
+        "uri": "http:/ /localhost:8080/ingredients",
+        "headers": {
+          "Host": ["localhost:8080"],
+          "User-Agent": ["curl/7.54.0"],
+          "Accept": ["*/*"]
+        },
+        "remoteAddress": null
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": ["application/json;charset=UTF-8"]
+        }
+      },
+      "timeTaken": 4
+    },
+...
+  ]
+}
+```
+
+
+
+==MONITORING THREADS==
+
+In addition to HTTP request tracing, thread activity can also be useful in determining what’s going on in a running application. The ==/threaddump== endpoint produces a snapshot of current thread activity. 
+
+```json
+{
+  "threadName": "reactor-http-nio-8",
+  "threadId": 338,
+  "blockedTime": -1,
+  "blockedCount": 0,
+  "waitedTime": -1,
+  "waitedCount": 0,
+  "lockName": null,
+  "lockOwnerId": -1,
+  "lockOwnerName": null,
+  "inNative": true,
+  "suspended": false,
+  "threadState": "RUNNABLE",
+  "stackTrace": [
+    {
+      "methodName": "kevent0",
+      "fileName": "KQueueArrayWrapper.java",
+      "lineNumber": -2,
+      "className": "sun.nio.ch.KQueueArrayWrapper",
+      "nativeMethod": true
+    },
+    {
+      "methodName": "poll",
+      "fileName": "KQueueArrayWrapper.java",
+      "lineNumber": 198,
+      "className": "sun.nio.ch.KQueueArrayWrapper",
+      "nativeMethod": false
+    },
+    ...
+  ],
+  "lockedMonitors": [
+    {
+      "className": "io.netty.channel.nio.SelectedSelectionKeySet",
+      "identityHashCode": 1039768944,
+      "lockedStackDepth": 3,
+      "lockedStackFrame": {
+        "methodName": "lockAndDoSelect",
+        "fileName": "SelectorImpl.java",
+        "lineNumber": 86,
+        "className": "sun.nio.ch.SelectorImpl",
+        "nativeMethod": false
+      }
+    },
+...
+  ],
+  "lockedSynchronizers": [],
+  "lockInfo": null
+}
+```
+
+
+
+==*Tapping runtime metrics*==
+
+The /metrics endpoint can report many metrics produced by a running application, including memory, processor, garbage collection, and HTTP requests. Actuator provides more than two dozen categories of metrics out of the box, as evidenced by the following list of metrics categories returned when issuing a GET request to /metrics:
+
+```json
+$ curl localhost:8080/actuator/metrics | jq
+{
+  "names": [
+    "jvm.memory.max",
+    "process.files.max",
+    "jvm.gc.memory.promoted",
+    "http.server.requests",
+    "system.load.average.1m",
+    "jvm.memory.used",
+    "jvm.gc.max.data.size",
+    "jvm.memory.committed",
+    "system.cpu.count",
+    "logback.events",
+    "jvm.buffer.memory.used",
+    "jvm.threads.daemon",
+    "system.cpu.usage",
+    "jvm.gc.memory.allocated",
+    "jvm.threads.live",
+    "jvm.threads.peak",
+    "process.uptime",
+    "process.cpu.usage",
+    "jvm.classes.loaded",
+    "jvm.gc.pause",
+    "jvm.classes.unloaded",
+    "jvm.gc.live.data.size",
+    "process.files.open",
+    "jvm.buffer.count",
+    "jvm.buffer.total.capacity",
+    "process.start.time"
+  ]
+}
+```
+
+Let’s focus on one category of metrics, http.server.requests, as an example of how to consume the /metrics endpoint.
+
+If instead of simply requesting /metrics, you were to issue a GET request for /metrics/{metrics name}, you’d receive more detail about the metrics for that category.
+
+```json
+$ curl localhost:8080/actuator/metrics/http.server.requests
+{
+  "name": "http.server.requests",
+  "measurements": [
+    { "statistic": "COUNT", "value": 2103 },
+    { "statistic": "TOTAL_TIME", "value": 18.086334315 },
+    { "statistic": "MAX", "value": 0.028926313 }
+  ],
+  "availableTags": [
+    { "tag": "exception",
+      "values": [ "ResponseStatusException",
+        "IllegalArgumentException", "none" ] },
+    { "tag": "method", "values": [ "GET" ] },
+    { "tag": "uri",
+      "values": [
+        "/actuator/metrics/{requiredMetricName}",
+        "/actuator/health", "/actuator/info", "/ingredients",
+        "/actuator/metrics", "/**" ] },
+    { "tag": "status", "values": [ "404", "500", "200" ] }
+  ]
+}
+```
+
+The most significant portion of this response is the measurements section, which includes all the metrics for the requested category.
+
+Using the status tag, you can get metrics for all requests resulting in an HTTP 404 status like this:
+
+```json
+$ curl localhost:8080/actuator/metrics/http.server.requests? \
+ 											tag=status:404
+{
+  "name": "http.server.requests",
+  "measurements": [
+    { "statistic": "COUNT", "value": 31 },
+    { "statistic": "TOTAL_TIME", "value": 0.522061212 },
+    { "statistic": "MAX", "value": 0 }
+  ],
+  "availableTags": [
+    { "tag": "exception",
+      "values": [ "ResponseStatusException", "none" ] },
+    { "tag": "method", "values": [ "GET" ] },
+    { "tag": "uri",
+      "values": [
+        "/actuator/metrics/{requiredMetricName}", "/**" ] }
+  ]
+}
+```
+
+
+
+### 15.3 *Customizing Actuator*
+
+One of the greatest features of Actuator is that it can be customized to meet the specific needs of an application. A few of the endpoints themselves allow for customization. Meanwhile, Actuator itself allows you to create custom endpoints.
+
+#### 15.3.1 *Contributing information to the /info endpoint*
+
+Although prefixing properties with info. is a very easy way to get custom data into the /info endpoint, it’s not the only way. Spring Boot offers an interface named InfoContributor that allows you to programmatically add any information you want to the /info endpoint response. Spring Boot even comes ready with a couple of useful implementations of InfoContributor that you’ll no doubt find useful.
+
+==CREATING A CUSTOM INFOCONTRIBUTOR==
+
+Suppose you want to add some simple statistics regarding Taco Cloud to the /info endpoint. For example, let’s say you want to include information about how many tacos have been created. To do that, you can write a class that implements InfoContributor, inject it with TacoRepository, and then publish whatever count that TacoRepository gives you as information to the /info endpoint. 
+
+```java
+package tacos.actuator;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.boot.actuate.info.Info.Builder;
+import org.springframework.boot.actuate.info.InfoContributor;
+import org.springframework.stereotype.Component;
+
+import tacos.data.TacoRepository;
+
+@Component
+public class TacoCountInfoContributor implements InfoContributor {
+  private TacoRepository tacoRepo;
+
+  public TacoCountInfoContributor(TacoRepository tacoRepo) {
+    this.tacoRepo = tacoRepo;
+  }
+
+  @Override
+  public void contribute(Builder builder) {
+    long tacoCount = tacoRepo.count().block();
+    Map<String, Object> tacoMap = new HashMap<String, Object>();
+    tacoMap.put("count", tacoCount);
+    builder.withDetail("taco-stats", tacoMap);
+  }
+}
+```
+
+By implementing InfoContributor, TacoCountInfoContributor is required to implement the contribute() method. This method is given a Builder object on which the contribute() method makes a call to withDetail() to add info details. In this particular case, you’re working with a reactive repository, so you need to call block() to get the count out of the returned Mono<Long>. 
+
+The results of the /info endpoint will include that count, as shown here:
+
+```json
+{
+  "taco-stats": {
+ 	"count": 44
+  }
+}
+```
+
+
+
+==INJECTING BUILD INFORMATION INTO THE /INFO ENDPOINT==
+
+Spring Boot comes with a few built-in implementations of InfoContributor that automatically add information to the results of the /info endpoint. Among them is BuildInfoContributor, which adds information from the project build file into the /info endpoint results. The basic information includes the project version, the timestamp of the build, and the host and user who performed the build.
+
+To enable build information to be included in the results of the /info endpoint, add the build-info goal to the Spring Boot Maven Plugin executions, as follows:
+
+```xml
+<build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>build-info</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin> 
+    </plugins>
+  </build>
+```
+
+The build will produce a file named build-info.properties in the distributable JAR or WAR file that BuildInfoContributor will consume and contribute to the /info endpoint. 
+
+```json
+{
+  "build": {
+    "artifact": "tacocloud",
+    "name": "taco-cloud",
+    "time": "2021-08-08T23:55:16.379Z",
+    "version": "0.0.15-SNAPSHOT",
+    "group": "sia"
+  },
+}
+```
+
+This information is useful for understanding exactly which version of an application is running and when it was built. 
+
+==EXPOSING GIT COMMIT INFORMATION==
+
+Assuming that your project is kept in Git for source code control, you may want to include Git commit information in the /info endpoint. To do that, you’ll need to add the following plugin in the Maven project pom.xml:
+
+```xml
+  <build>
+    <plugins>
+...
+      <plugin>
+        <groupId>pl.project13.maven</groupId>
+        <artifactId>git-commit-id-plugin</artifactId>
+      </plugin>    
+    </plugins>
+  </build>
+```
+
+Both of these plugins do essentially the same thing: they generate a build-time artifact named git.properties that contains all of the Git metadata for the project. A special InfoContributor implementation discovers that file at runtime and exposes its contents as part of the /info endpoint.
+
+Of course, to generate the git.properties file, the project needs to have Git commit metadata. That is, it must be a clone of a Git repository or be a newly initialized local Git repository with at least one commit. If not, then either of these plugins will fail. You can, however, configure them to ignore the missing Git metadata. F
+
+```xml
+<build>
+ <plugins>
+   ...
+   <plugin>
+     <groupId>pl.project13.maven</groupId>
+     <artifactId>git-commit-id-plugin</artifactId>
+     <configuration>
+       <failOnNoGitDirectory>false</failOnNoGitDirectory>
+     </configuration>
+   </plugin>
+ </plugins>
+</build>
+```
+
+In its simplest form, the Git information presented in the /info endpoint includes the Git branch, commit hash, and timestamp that the application was built against, as shown here:
+
+```json
+{
+  "git": {
+    "branch": "main",
+    "commit": {
+      "id": "df45505",
+      "time": "2021-08-08T21:51:12Z"
+    }
+  },
+...
+}
+```
+
+This information is quite definitive in describing the state of the code when the project was built. But by setting the management.info.git.mode property to full, you can get extremely detailed information about the Git commit that was in play when the project was built, as shown in the next code sample:
+
+```yaml
+management:
+  info:
+   git:
+    mode: full
+```
+
+The following listing shows a sample of what the full Git info might look like.
+
+```json
+{
+  "git": {
+    "local": {
+      "branch": {
+        "ahead": "8",
+        "behind": "0"
+      }
+    },
+    "commit": {
+      "id": {
+        "describe-short": "df45505-dirty",
+        "abbrev": "df45505",
+        "full": "df455055daaf3b1347b0ad1d9dca4ebbc6067810",
+        "describe": "df45505-dirty"
+      },
+      "message": {
+        "short": "Apply chapter 18 edits",
+        "full": "Apply chapter 18 edits"
+      },
+      "user": {
+        "name": "Craig Walls",
+        "email": "craig@habuma.com"
+      },
+      "author": {
+        "time": "2021-08-08T15:51:12-0600"
+      },
+      "committer": {
+        "time": "2021-08-08T15:51:12-0600"
+      },
+      "time": "2021-08-08T21:51:12Z"
+    },
+    "branch": "master",
+    "build": {
+      "time": "2021-08-09T00:13:37Z",
+      "version": "0.0.15-SNAPSHOT",
+      "host": "Craigs-MacBook-Pro.local",
+      "user": {
+        "name": "Craig Walls",
+        "email": "craig@habuma.com"
+      }
+    },
+    "tags": "",
+    "total": {
+      "commit": {
+        "count": "196"
+      }
+    },
+    "closest": {
+      "tag": {
+        "commit": {
+          "count": ""
+        },
+        "name": ""
+      }
+    },
+    "remote": {
+      "origin": {
+        "url": "git@github.com:habuma/spring-in-action-6-samples.git"
+      }
+    },
+    "dirty": "true"
+  }
+}
+```
+
+the dirty field is true,indicating that some uncommitted changes existed in the build directory when the project was built.
+
+#### 15.3.2 *Defining custom health indicators*
+
+To create a custom health indicator, all you need to do is create a bean that implements the HealthIndicator interface.
+
+```java
+package tacos.actuator;
+
+import java.util.Calendar;
+import org.springframework.boot.actuate.health.Health;
+import org.springframework.boot.actuate.health.HealthIndicator;
+import org.springframework.stereotype.Component;
+
+//只是为了掩饰使用方法才写的这个类
+@Component
+public class WackoHealthIndicator
+       implements HealthIndicator {
+  @Override
+  public Health health() {
+    int hour = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+    if (hour > 12) {
+      return Health
+          .outOfService()
+          .withDetail("reason",
+                 "I'm out of service after lunchtime")
+          .withDetail("hour", hour)
+          .build();
+    }
+
+    if (Math.random() <= 0.1) {
+      return Health
+          .down()
+          .withDetail("reason", "I break 10% of the time")
+          .build();
+    }
+    return Health
+        .up()
+        .withDetail("reason", "All is good!")
+        .build();
+  }
+}
+
+```
+
+
+
+#### 15.3.3  *Registering custom metrics*
+
+Actuator metrics are implemented by Micrometer (https://micrometer.io/) ，a vendor-neutral metrics facade that makes it possible for applications to publish any metrics they want and to display them in the third-party monitoring system of their choice, including support for Prometheus, Datadog, and New Relic, among others.
+
+The most basic means of publishing metrics with Micrometer is through Micrometer’s MeterRegistry. In a Spring Boot application, all you need to do to publish metrics is inject a MeterRegistry wherever you may need to publish counters, timers, or gauges that capture the metrics for your application.
+
+As an example of publishing custom metrics, suppose you want to keep counters for the numbers of tacos that have been created with different ingredients. That is, you want to track how many tacos have been made with lettuce, ground beef, flour tortillas, or any of the available ingredients. The TacoMetrics bean in the next listing shows how you might use MeterRegistry to gather that information.
+
+```java
+package tacos.actuator;
+
+import java.util.List;
+import org.springframework.data.rest.core.event.AbstractRepositoryEventListener;
+import org.springframework.stereotype.Component;
+import io.micrometer.core.instrument.MeterRegistry;
+import tacos.Ingredient;
+import tacos.Taco;
+
+@Component
+public class TacoMetrics extends AbstractRepositoryEventListener<Taco> {
+  private MeterRegistry meterRegistry;
+
+  public TacoMetrics(MeterRegistry meterRegistry) {
+    this.meterRegistry = meterRegistry;
+  }
+
+  @Override
+  protected void onAfterCreate(Taco taco) {
+    List<Ingredient> ingredients = taco.getIngredients();
+    for (Ingredient ingredient : ingredients) {
+      meterRegistry.counter("tacocloud",
+          "ingredient", ingredient.getId()).increment();
+    }
+  }
+}
+```
+
+It extends AbstractRepositoryEventListener, a Spring Data class that enables the interception of repository events and overrides the onAfterCreate() method so that it can be notified any time a new Taco object is saved.
+
+Within onAfterCreate(), a counter is declared for each ingredient where the tag name is ingredient and the tag value is equal to the ingredient ID. If a counter with that tag already exists, it will be reused. The counter is incremented, indicating that another taco has been created for the ingredient.
+
+```json
+$ curl localhost:8080/actuator/metrics/
+{
+  "name": "tacocloud",
+  "measurements": [ { "statistic": "COUNT", "value": 84 }
+  ],
+  "availableTags": [
+    {
+      "tag": "ingredient",
+      "values": [ "FLTO", "CHED", "LETC", "GRBF",
+        "COTO", "JACK", "TMTO", "SLSA"]
+    }
+  ]
+}
+```
+
+Suppose you want to know how many tacos have been created with flour tortillas (FLTO)
+
+```json
+{
+  "name": "tacocloud",
+  "measurements": [
+    { "statistic": "COUNT", "value": 39 }
+  ],
+  "availableTags": []
+}
+```
+
+#### 15.3.4 *Creating custom endpoints*
+
+In fact, Actuator endpoints are defined quite differently from controllers. Instead of a class that’s annotated with @Controller or @RestController, Actuator endpoints are defined with classes that are annotated with `@Endpoint`.
+
+Actuator endpoint operations are defined by methods annotated with `@ReadOperation`, `@WriteOperation`, and `@DeleteOperation`.
+
+These annotations don’t imply any specific communication mechanism and, in fact, allow Actuator to communicate by any variety of communication mechanisms, HTTP, and JMX out of the box. 
+
+To demonstrate how to write a custom Actuator endpoint, consider NotesEndpoint in the next listing.
+
+```java
+package tacos.actuator;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import org.springframework.boot.actuate.endpoint.annotation.DeleteOperation;
+import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
+import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
+import org.springframework.boot.actuate.endpoint.annotation.WriteOperation;
+import org.springframework.stereotype.Component;
+
+@Component
+@Endpoint(id="notes", enableByDefault=true)
+public class NotesEndpoint {
+
+  private List<Note> notes = new ArrayList<>();
+
+  @ReadOperation
+  public List<Note> notes() {
+    return notes;
+  }
+
+  @WriteOperation
+  public List<Note> addNote(String text) {
+    notes.add(new Note(text));
+    return notes;
+  }
+
+  @DeleteOperation
+  public List<Note> deleteNote(int index) {
+    if (index < notes.size()) {
+      notes.remove(index);
+    }
+    return notes;
+  }
+
+  class Note {
+    private Date time = new Date();
+    private final String text;
+
+    public Note(String text) {
+      this.text = text;
+    }
+    
+    public Date getTime() {
+        return time;
+    }
+    
+    public String getText() {
+        return text;
+    }
+  }
+}
+
+```
+
+It’s also annotated with @Endpoint, making it an Actuator endpoint with an ID of notes. And it’s enabled by default so that you won’t need to explicitly enable it by including it in the management.web.endpoints.web.exposure.include configuration property.
+
+As you can see, NotesEndpoint offers one of each kind of operation:
+
+* The notes() method is annotated with @ReadOperation. When invoked, it will return a list of available notes. In HTTP terms, this means it will handle an HTTP GET request for /actuator/notes and respond with a JSON list of notes.
+* The addNote() method is annotated with @WriteOperation. When invoked, it will create a new note from the given text and add it to the list. In HTTP terms, it handles a POST request where the body of the request is a JSON object with a text property. It finishes by responding with the current state of the notes list.
+* The deleteNote() method is annotated with @DeleteOperation. When invoked, it will delete the note at the given index. In HTTP terms, this endpoint handles DELETE requests where the index is given as a request parameter.
+
+It’s important to note that although I’ve shown only how to interact with the endpoint using HTTP, it will also be exposed as an MBean that can be accessed using whatever JMX client you choose. But if you want to limit it to only exposing an HTTP endpoint, you can annotate the endpoint class with `@WebEndpoint` instead of @Endpoint as follows:
+
+```java
+@Component
+@WebEndpoint(id="notes", enableByDefault=true)
+public class NotesEndpoint {
+ ...
+}
+```
+
+Likewise, if you prefer an MBean-only endpoint, annotate the class with `@JmxEndpoint`. 
+
+### 15.4 *Securing Actuator*
+
+Even though it’s important to secure Actuator, security is outside of Actuator’s responsibilities. Instead, you’ll need to use Spring Security to secure Actuator. And because Actuator endpoints are just paths in the application like any other path in the application, there’s nothing unique about securing Actuator versus any other application path. 
+
+Because all Actuator endpoints are gathered under a common base path of /actuator (or possibly some other base path if the management.endpoints.web.base-path property is set), it’s easy to apply authorization rules to all Actuator endpoints across the board. For example, to require that a user have ROLE_ADMIN authority to invoke Actuator endpoints, you might override the configure() method of `WebSecurityConfigurerAdapter` like this:
+
+```java
+@Override
+  protected void configure(HttpSecurity http) throws Exception {
+    	http
+            .authorizeRequests()
+            .antMatchers("/actuator/**").hasRole("ADMIN")
+            .and()
+            .httpBasic();
+  }
+```
+
+It also configures HTTP basic authentication so that client applications can submit encoded authentication information in their request *Authorization* headers.
+
+The only real problem with securing Actuator this way is that the path to the endpoints is hardcoded as /actuator/**. 
+
+If this were to change because of a change to the management.endpoints.web.base-path property, it would no longer work. To help with this, Spring Boot also provides `EndpointRequest`—a request matcher class that makes this even easier and less dependent on a given String path. Using EndpointRequest, you can apply the same security requirements for Actuator endpoints without hardcoding the /actuator/** path, as shown here:
+
+```java
+@Override
+  protected void configure(HttpSecurity http) throws Exception {
+      http
+            .requestMatcher(EndpointRequest.toAnyEndpoint())
+            .authorizeRequests()
+              .anyRequest().hasRole("ADMIN")
+            .and()
+            .httpBasic();
+  }
+```
+
+If you’d like to exclude some of the endpoints from the request matcher, you can call `excluding()`, specifying them by name as follows:
+
+```java
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http
+            .requestMatcher(
+                    EndpointRequest.toAnyEndpoint()
+                            .excluding("health", "info"))
+            .authorizeRequests()
+              .anyRequest().hasRole("ADMIN")
+            
+            .and()
+              .httpBasic();
+  }
+```
+
+On the other hand, should you wish to apply security to only a handful of Actuator endpoints, you can specify those endpoints by name by calling `to()` instead of `toAnyEndpoint()`, like this:
+
+```java
+  @Override
+  protected void configure(HttpSecurity http) throws Exception {
+    http
+            .requestMatcher(EndpointRequest.to(
+                    "beans", "threaddump", "loggers"))
+            .authorizeRequests()
+            .anyRequest().hasRole("ADMIN")
+            .and()
+            .httpBasic();
+  }
+```
+
+This limits Actuator security to only the /beans, /threaddump, and /loggers endpoints. All other Actuator endpoints are left wide open. 
+
+### 15.5 *Summary*
+
+* Spring Boot Actuator provides several endpoints, both as HTTP and JMX MBeans, that let you peek into the inner workings of a Spring Boot application.
+* Most Actuator endpoints are disabled by default but can be selectively exposed by setting management.endpoints.web.exposure.include and management .endpoints.web.exposure.exclude.
+* Some endpoints, such as the /loggers and /env endpoints, allow for write operations to change a running application’s configuration on the fly
+* Details regarding an application’s build and Git commit can be exposed in the /info endpoint.
+* An application’s health can be influenced by a custom health indicator, tracking the health of an externally integrated application.
+* Custom application metrics can be registered through Micrometer, which affords Spring Boot applications instant integration with several popular metrics engines such as Datadog, New Relic, and Prometheus.
+* Actuator web endpoints can be secured using Spring Security, much like any other endpoint in a Spring application.
+
+
+
+## 16 Administering Spring
+
+### 16.1 *Using Spring Boot Admin*
+
+==Spring Boot Admin is an administrative frontend web application that makes Actuator endpoints more consumable by humans==. It’s split into two primary components: the Spring Boot Admin server and its clients. The Admin server collects and displays Actuator data that’s fed to it from one or more Spring Boot applications, which are identified as Spring Boot Admin clients, as illustrated in figure 16.1.
+
+![image-20231218213832186](Spring.assets/image-20231218213832186.png)
+
+Figure 16.1 The Spring Boot Admin server consumes Actuator endpoints from one or more Spring Boot  applications and presents the data in a web-based UI.
+
+You’ll need to register each of your applications with the Spring Boot Admin server, including the Taco Cloud application. But first, you’ll set up the Spring Boot Admin server to receive each client’s Actuator information.
+
+#### 16.1.1 *Creating an Admin server*
+
+To enable the Admin server, you’ll first need to create a new Spring Boot application and add the Admin server dependency to the project’s build. The Admin server is generally used as a standalone application, separate from any other application. Therefore, the easiest way to get started is to use the Spring Boot Initializr to create a new Spring Boot project and select the check box labeled Spring Boot Admin (Server). This results in the following dependency being included in the <dependencies> block:
+
+```xml
+<dependency>
+ <groupId>de.codecentric</groupId>
+ <artifactId>spring-boot-admin-starter-server</artifactId>
+</dependency>
+```
+
+Next, you’ll need to enable the Admin server by annotating the main configuration class with `@EnableAdminServe`r as shown here:
+
+```java
+package tacos.admin;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
+
+@EnableAdminServer
+@SpringBootApplication
+public class AdminServerApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AdminServerApplication.class, args);
+	}
+
+}
+
+```
+
+
+
+Finally, because the Admin server won’t be the only application running locally as it’s developed, you should set it to listen in on a unique port, but one you can easily access (not port 0, for example). Here, I’ve chosen port 9090 as the port for the Spring Boot Admin server:
+
+```yaml
+server:
+  port: 90090
+```
+
+
+
+Now your Admin server is ready. If you were to fire it up at this point and navigate to http:/ /localhost:9090 in your web browser, you’d see something like what’s shown in figure 16.2.
+
+![image-20231218221638656](Spring.assets/image-20231218221638656.png)
+
+Figure 16.2 A newly created server displayed in the Spring Boot Admin UI. No applications are registered yet.
+
+#### 16.1.2 *Registering Admin clients*
+
+Because the Admin server is an application separate from other Spring Boot application(s) for which it presents Actuator data, ==you must somehow make the Admin server  aware of the applications it should display==. Two ways to register Spring Boot Admin clients with the Admin server follow:
+
+* Each application explicitly registers itself with the Admin server.
+* The Admin server discovers applications through the Eureka service registry.
+
+We’ll focus on how to configure individual Boot applications as Spring Boot Admin clients so that they can register themselves with the Admin server. 
+
+> For more information about working with Eureka, see the Spring Cloud documentation at https://docs
+>
+> .spring.io/spring-cloud-netflix/docs/current/reference/html/ or *Spring Microservices* *in Action, 2nd Edition*, by John Carnell and Illary Huaylupo Sánchez.
+
+For a Spring Boot application to register itself as a client of the Admin server, you must include the Spring Boot Admin client starter in its build. You can easily add this dependency to your build by selecting the check box labeled Spring Boot Admin (Client) in the Initializr, or you can set the following <dependency> for a Maven-built Spring Boot application:
+
+```xml
+<dependency>
+ <groupId>de.codecentric</groupId>
+ <artifactId>spring-boot-admin-starter-client</artifactId>
+</dependency>
+```
+
+With the client-side library in place, you’ll also need to configure the location of the Admin server so that the client can register itself. To do that, you’ll set the spring.boot.admin.client.url property to the root URL of the Admin server like so:
+
+```yaml
+spring:
+  application:
+   name: taco-clou
+  boot:
+   admin:
+    client:
+     url: http:/ /localhost:9090
+```
+
+Notice that the spring.application.name property is also set. This property is used by several Spring projects to identify an application. In this case, it is the name that will be given to the Admin server to use as a label anywhere information about the application appears in the Admin server.
+
+Although there isn’t much information about the Taco Cloud application shown in figure 16.3, it does show the application’s uptime, whether the Spring Boot Maven plugin has the build-info goal configured (as we discussed in section 15.3.1), and the build version. Rest assured that you’ll see plenty of other runtime details after you click the application in the Admin server. 
+
+![image-20231218225628254](Spring.assets/image-20231218225628254.png)
+
+Figure 16.3 The Spring Boot Admin UI displays a single registered application.
+
+### 16.2 *Exploring the Admin server*
+
+Once you’ve registered all of the Spring Boot applications as Admin server clients, the Admin server makes a wealth of information available for seeing what’s going on inside each application, including the following:
+
+* General health and information
+* Any metrics published through Micrometer and the /metrics endpoint
+* Environment properties
+* Logging levels for packages and classes
+
+In fact, almost anything that the Actuator exposes can be viewed in the Admin server, albeit in a much ==more human-friendly format==. This includes graphs and filters to help distill the information. 
+
+#### 16.2.1 *Viewing general application health and information*
+
+As discussed in section 15, some of the most basic information provided by the Actuator is health and general application information via the /health and /info endpoints.The Admin server displays that information under the Details menu item as shown in figure 16.4.
+
+![image-20231218231544643](Spring.assets/image-20231218231544643.png)
+
+Figure 16.4 The Details screen of the Spring Boot Admin UI displays general health and information about an  application.
+
+If you scroll past the Health and Info sections in the Details screen, you’ll find useful statistics from the application’s JVM, including graphs displaying memory, thread, and processor usage (see figure 16.5).
+
+![image-20231218231903903](Spring.assets/image-20231218231903903.png)
+
+Figure 16.5 As you scroll down on the Details screen, you can view additional JVM internal information, including  processor, thread, and memory statistics.
+
+The information displayed in the graphs, as well as the metrics under Processes and Garbage Collection Pauses, can provide useful insights into how your application uses JVM resources. 
+
+#### 16.2.2 *Watching key metrics*
+
+The information presented by the /metrics endpoint is perhaps the least human-readable of all of the Actuator’s endpoints.
+
+Initially, the Metrics screen doesn’t display any metrics whatsoever. But the form at the top lets you set up one or more watches on any metrics you want to keep an eye on.
+
+In figure 16.6, I’ve set up two watches on metrics under the http.server.requests category. The first reports metrics anytime an HTTP GET request is received and the return status is 200 (OK). The second reports metrics for any request that results in an HTTP 404 (NOT FOUND) response.
+
+![image-20231218232544767](Spring.assets/image-20231218232544767.png)
+
+Figure 16.6 On the Metrics screen, you can set up watches on any metrics published through the  application’s /metrics endpoint.
+
+What’s nice about these metrics (and, in fact, almost anything displayed in the Admin server) is that ==they show live data==—they’ll automatically update without the need to refresh the page. 
+
+#### 16.2.3  *Examining environment properties*
+
+The Actuator’s /env endpoint returns all environment properties available to a Spring Boot application from all of its property sources.
+
+Because there can be hundreds of properties, you can filter the list of available properties by either property name or value. Figure 16.7 shows properties filtered by those whose name and/or values contain the text "spring.". The Admin server also allows you to set or override environment properties using the form under the Environment Manager header. 
+
+![image-20231218232803428](Spring.assets/image-20231218232803428.png)
+
+Figure 16.7 The Environment screen displays environment properties and includes options to override and  filter those values.
+
+#### 16.2.4  *Viewing and setting logging levels*
+
+The Actuator’s /loggers endpoint is helpful in understanding and overriding logging levels in a running application.  Figure 16.8 shows the list of loggers filtered by the name org.springframework.boot.
+
+![image-20231218233301909](Spring.assets/image-20231218233301909.png)
+
+Figure 16.8 The Loggers screen displays logging levels for packages and classes in the application and lets you  override those levels.
+
+### 16.3 *Securing the Admin server*
+
+As we discussed in the previous chapter, the information exposed by the Actuator’s endpoints isn’t intended for general consumption. They contain information that exposes details about an application that only an application administrator should see. Moreover, some of the endpoints allow changes that certainly shouldn’t be exposed to just anyone.
+
+Just as security is important to the Actuator, it’s also important to the Admin server. What’s more, if the Actuator endpoints require authentication, then the Admin server needs to know the credentials to be able to access those endpoints. 
+
+#### 16.3.1 *Enabling login in the Admin server*
+
+It’s probably a good idea to add security to the Admin server because it’s not secured by default. Because the Admin server is a Spring Boot application, you can secure it using Spring Security just like you would any other Spring Boot application. And just as you would with any application secured by Spring Security, you’re free to decide which security scheme fits your needs best.
+
+At a minimum, you can add the Spring Boot security starter to the Admin server’s build by checking the Security checkbox in the Initializr or by adding the following <dependency> to the project’s pom.xml file:
+
+```xml
+<dependency>
+ <groupId>org.springframework.boot</groupId>
+ <artifactId>spring-boot-starter-security</artifactId>
+</dependency>
+```
+
+Then, so that you don’t have to keep looking at the Admin server’s logs for the randomly generated password, you can configure a simple administrative username and password in application.yml like so:
+
+```yaml
+spring:
+  security:
+    user:
+      name: admin
+      password: 53cr3t
+```
+
+By default, Spring Security will enable CSRF on the Spring Boot Admin server, which will prevent client applications from registering with the Admin Server. Therefore, we will need a small bit of security configuration to disable CSRF, as shown here:
+
+```java
+package tacos.admin;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
+import org.springframework.security.web.server.SecurityWebFilterChain;
+
+@EnableWebFluxSecurity
+public class SecurityConfig {
+
+    @Bean
+    public SecurityWebFilterChain filterChain(ServerHttpSecurity http) throws Exception {
+      return http
+              .csrf()
+                  .disable()
+              .build();
+    }
+    
+}
+```
+
+Of course, this security configuration is extremely basic. I recommend that you consult chapter 5 for ways of configuring Spring Security for a richer security scheme around the Admin server. 
+
+#### 16.3.2 *Authenticating with the Actuator*
+
+In section 15.4, we discussed how to secure Actuator endpoints with HTTP Basic authentication. By doing so, you’ll be able to keep out everyone who doesn’t know the username and password you assigned to the Actuator endpoints. Unfortunately, that also means that the Admin server won’t be able to consume Actuator endpoints unless it provides the username and password. But how will the Admin server get those credentials?
+
+If the application registers directly with the Admin server, then it can send its credentials to the server at registration time. You’ll need to configure a few properties to enable that.
+
+The spring.boot.admin.client.username and spring.boot.admin.client.password properties specify the credentials that the Admin server can use to access an application’s Actuator endpoints. The following snippet from application.yml shows how you might set those properties:
+
+```yaml
+spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:9090
+# end::springBootAdminUri[]
+        username: admin
+        password: 53cr3t
+```
+
+
+
+The username and password properties must be set in each application that registers itself with the Admin server. The values given must match the username and password that’s required in an HTTP Basic authentication header to the Actuator endpoints. In this example, they’re set to admin and password, which are the credentials configured to access the Actuator endpoints. 
+
+### 16.4 *Summary*
+
+* The Spring Boot Admin server consumes the Actuator endpoints from one or more Spring Boot applications and presents the data in a user-friendly web  application.
+* Spring Boot applications can either register themselves as clients to the Admin server or the Admin server can discover them through Eureka.
+* Unlike the Actuator endpoints that capture a snapshot of an application’s state, the Admin server is able to display a live view into the inner workings of an application.
+* The Admin server makes it easy to filter Actuator results and, in some cases, display data visually in a graph.
+* Because it’s a Spring Boot application, the Admin server can be secured by any means available through Spring Security.
+
+
+
+## 17 *Monitoring Spring with JMX*
+
+For over a decade and a half, Java Management Extensions (JMX) has been the standard means of monitoring and managing Java applications. By exposing man aged components known as MBeans (managed beans), an external JMX client can manage an application by invoking operations, inspecting properties, and monitoring events from MBeans.
+
+### 17.1  *Working with Actuator MBeans*
+
+By default, all Actuator endpoints are exposed as MBeans. But, starting with Spring Boot 2.2, JMX itself is disabled by default. To enable JMX in your Spring Boot application, you can set spring.jmx.enabled to true. 
+
+```yaml
+spring:
+  jmx:
+    enabled: true
+```
+
+With that property set, Spring support for JMX is enabled. And with it, the Actuator endpoints are all exposed as MBeans. You can use any JMX client you wish to connect with Actuator endpoint MBeans. Using JConsole, which comes with the Java Development Kit, you’ll find Actuator MBeans listed under the org.springframework.boot domain, as shown in figure 17.1.
+
+![image-20231219162005153](Spring.assets/image-20231219162005153.png)
+
+Figure 17.1 Actuator endpoints are automatically exposed as JMX MBeans.
+
+==One thing that’s nice about Actuator MBean endpoints is that they’re all exposed by default==. You can, however, choose to narrow down the choices by setting management.endpoints.jmx.exposure.include and management.endpoints.jmx.exposure.exclude. 
+
+```yaml
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: health,info,bean,conditions
+```
+
+Or, if there are only a few you want to exclude, you can set management.endpoints.jmx.exposure.exclude like this:
+
+```yaml
+management:
+  endpoints:
+    jmx:
+      exposure:
+        include: env,metrics
+```
+
+
+
+To invoke the managed operations on one of the Actuator MBeans in JConsole, expand the endpoint MBean in the left-hand tree, and then select the desired operation under Operations.
+
+For example, if you’d like to inspect the logging levels for the tacos.ingredients package, expand the Loggers MBean and click on the operation named loggerLevels, as shown in figure 17.2. In the form at the top right, fill in the Name field with the package name (org.springframework.web, for example), and then click the loggerLevels button.
+
+![image-20231219164142955](Spring.assets/image-20231219164142955.png)
+
+Figure 17.2 Using JConsole to display logging levels from a Spring Boot application
+
+After you click the loggerLevels button, a dialog box will pop up, showing you the response from the /loggers endpoint MBean. It might look a little like figure 17.3.
+
+![image-20231219164159366](Spring.assets/image-20231219164159366.png)
+
+
+
+### 17.2  *Creating your own MBeans*
+
+Spring makes it easy to expose any bean you want as a JMX MBean. All you must do is annotate the bean class with @ManagedResource and then annotate any methods or properties with @ManagedOperation or @ManagedAttribute. Spring will take care of the rest.
+
+For example, suppose you want to provide an MBean that tracks how many tacos have been ordered through Taco Cloud. You can define a service bean that keeps a running count of how many tacos have been created. The following listing shows what such a service might look like.
+
+```java
+package tacos.jmx;
+
+import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.data.rest.core.event.AbstractRepositoryEventListener;
+import org.springframework.jmx.export.annotation.ManagedAttribute;
+import org.springframework.jmx.export.annotation.ManagedOperation;
+import org.springframework.jmx.export.annotation.ManagedResource;
+
+import tacos.Taco;
+import tacos.data.TacoRepository;
+
+@Service
+@ManagedResource
+public class TacoCounter
+        extends AbstractRepositoryEventListener<Taco> {
+
+  private AtomicLong counter;
+  public TacoCounter(TacoRepository tacoRepo) {
+    tacoRepo
+            .count()
+            .subscribe(initialCount -> {
+              this.counter = new AtomicLong(initialCount);
+            });
+  }
+
+  @Override
+  protected void onAfterCreate(Taco entity) {
+    counter.incrementAndGet();
+  }
+
+  @ManagedAttribute
+  public long getTacoCount() {
+    return counter.get();
+  }
+
+  @ManagedOperation
+  public long increment(long delta) {
+    return counter.addAndGet(delta);
+  }
+
+}
+
+```
+
+The tacoCounter class is annotated with `@ManagedResource` to indicate that this bean should be an MBean. As an MBean, it will expose one attribute and one operation. The `getTacoCount()` method is annotated with `@ManagedAttribute ` so that it will be exposed as an MBean attribute, whereas the increment() method is annotated with `@ManagedOperation`, exposing it as an MBean operation. Figure 17.4 shows how the TacoCounter MBean appears in JConsole.
+
+![image-20231219165851679](Spring.assets/image-20231219165851679.png)
+
+Because it extends AbstractRepositoryEventListener, it will be notified of any persistence events when a Taco is saved through TacoRepository. In this particular case, the onAfterCreate() method will be invoked anytime a new Taco object is created and saved, and it will increment the counter by one. But `AbstractRepositoryEventListener` also offers several methods for handling events both before and after objects are created, saved, or deleted.
+
+Working with MBean operations and attributes is largely a ==pull operation==. That is, even if the value of an MBean attribute changes, you won’t know until you view the attribute through a JMX client. 
+
+### 17.3 *Sending notifications*
+
+==MBeans can push notifications to interested JMX clients with Spring’s NotificationPublisher==. NotificationPublisher has a single sendNotification() method that, when given a Notification object, publishes the notification to any JMX clients that have subscribed to the MBean.
+
+==For an MBean to be able to publish notifications, it must implement the NotificationPublisherAware interface, which requires that a setNotificationPublisher() method be implemented== . 
+
+For example, suppose you want to publish a notification for every 100 tacos that are created. You can change the TacoCounter class so that it implements NotificationPublisherAware and uses the injected NotificationPublisher to send notifications for every 100 tacos that are created.
+
+```java
+package tacos.jmx;
+
+import java.util.concurrent.atomic.AtomicLong;
+import org.springframework.data.rest.core.event.AbstractRepositoryEventListener;
+import org.springframework.jmx.export.annotation.ManagedAttribute;
+import org.springframework.jmx.export.annotation.ManagedOperation;
+import org.springframework.jmx.export.annotation.ManagedResource;
+import org.springframework.stereotype.Service;
+
+import org.springframework.jmx.export.notification.NotificationPublisher;
+import org.springframework.jmx.export.notification.NotificationPublisherAware;
+import javax.management.Notification;
+
+import tacos.Taco;
+import tacos.data.TacoRepository;
+
+@Service
+@ManagedResource
+public class TacoCounter
+       extends AbstractRepositoryEventListener<Taco>
+       implements NotificationPublisherAware {
+
+  private AtomicLong counter;
+  private NotificationPublisher np;
+
+  @Override
+  public void setNotificationPublisher(NotificationPublisher np) {
+    this.np = np;
+  }
+
+...
+
+  @ManagedOperation
+  public long increment(long delta) {
+    long before = counter.get();
+    long after = counter.addAndGet(delta);
+    if ((after / 100) > (before / 100)) {
+      Notification notification = new Notification(
+          "taco.count", this,
+          before, after + "th taco created!");
+      np.sendNotification(notification);
+    }
+    return after;
+  }
+
+}
+
+```
+
+In the JMX client, you’ll need to subscribe to the TacoCounter MBean to receive notifications. Then, as tacos are created, the client will receive notifications for each century count. Figure 17.5 shows how the notifications may appear in JConsole.
+
+> Notifications are a great way for an application to actively send data and alerts to a monitoring client without requiring the client to poll managed attributes or invoke managed operations. 
+
+### 17.4 Summary
+
+* Most Actuator endpoints are available as MBeans that can be consumed using any JMX client.
+* Spring automatically enables JMX for monitoring beans in the Spring application context.
+* Spring beans can be exposed as MBeans by annotating them with @ManagedResource. Their methods and properties can be exposed as managed operations and attributes by annotating the bean class with @ManagedOperation and @ManagedAttribute.
+* Spring beans can publish notifications to JMX clients using NotificationPublisher.
 
 
 
 
 
+## 18 Deploying Spring
+
+We’ve focused on using the features of Spring Boot that help us develop an application. There have been some exciting steps along the way, but it’s all for nothing if you don’t cross the finish line and deploy the application.
+
+In fact, unlike most Java web applications, which are typically deployed to an application server as WAR files, Spring Boot offers several deployment options. Before we look at how to deploy a Spring Boot application, let’s consider all the options and choose a few that suit your needs best.
+
+### 18.1 Weighting deployment options
+
+You can build and run Spring Boot applications in several ways, including the following:
+
+* Running the application directly in the IDE with either Spring Tool Suite or IntelliJ IDEA
+* Running the application from the command line using the Maven springboot:run goal or Gradle bootRun task
+* Using Maven or Gradle to produce an executable JAR file that can be run at the command line or be deployed in the cloud
+* Using Maven or Gradle to produce a WAR file that can be deployed to a traditional Java application server
+* Using Maven or Gradle to produce a container image that can be deployed anywhere that containers are supported, including Kubernetes environments.
+
+Any of these choices is suitable for running the application while you’re still developing it.
+
+Although running an application from the IDE or via Maven or Gradle isn’t considered a production-ready option, executable JAR files and traditional Java WAR files are certainly valid options for deploying applications to a production environment. Given the options of deploying a WAR file, a JAR file, or a container image, how do you choose? In general, the choice comes down to whether you plan to deploy your application to a traditional Java application server or a cloud platform, as described here:
+
+* *Deploying to a ==Platform as a Service (PaaS) cloud==*—If you’re planning to deploy your application to a PaaS cloud platform such as Cloud Foundry (https://www.cloudfoundry.org/), then an executable ==JAR== file is a fine choice. Even if the cloud platform supports WAR deployment, the JAR file format is much simpler than the WAR format, which is designed for application server deployment.
+* *Deploying to ==Java application servers==*—If you must deploy your application to Tomcat, WebSphere, WebLogic, or any other traditional Java application server, you really have no choice but to build your application as a ==WAR== file.
+* *Deploying to ==Kubernetes==*—Modern cloud platforms are increasingly based on Kubernetes (https://kubernetes.io/). When deploying to Kubernetes, which is itself a container-orchestration system, the obvious choice is to build your application into a ==container image==.
+
+In this chapter, we’ll focus on the following three deployment scenarios:
+
+* Building a Spring Boot application as an executable JAR file, which can possibly be pushed to a PaaS platform
+* Deploying a Spring Boot application as a WAR file to a Java application server such as Tomcat
+* Packaging a Spring Boot application as a Docker container image for deployment to any platform that supports Docker deployments
+
+### 18.2 *Building executable JAR files*
+
+Building a Spring application into an executable JAR file is rather straightforward. Assuming that you chose JAR packaging when initializing your project, then you should be able to produce an executable JAR file with the following Maven command:
+
+```txt
+mvn package
+```
+
+After a successful build, the resulting JAR file will be placed into the target directory with a name and version based on the <artifactId> and <version> entries in the project’s pom.xml file (e.g., tacocloud-0.0.19-SNAPSHOT.jar).
+
+![image-20231219214244367](Spring.assets/image-20231219214244367.png)
+
+Or, if you’re using Gradle, then this will do the trick:
+
+```txt
+gradlew build
+```
+
+For Gradle builds, the resulting JAR will be found in the build/libs directory. The name of the JAR file will be based on the rootProject.name property in the settings.gradle file along with the version property in build.gradle.
+
+Once you have the executable JAR file, you can run it with java -jar like this:
+
+```txt
+java -jar tacocloud-0.0.19-SNAPSHOT.jar
+```
+
+The application will run and, assuming it is a web application, start up an embedded server (Netty or Tomcat, depending on whether or not the project is a reactive web project) and start listening for requests on the configured server.port (8080 by default).
+
+==how can you deploy an executable JAR file?==
+
+That really depends on where you’ll be deploying the application. But if you are deploying to a Cloud Foundry foundation, you can push the JAR file using the cf command-line tool as follows:
+
+```txt
+cf push tacocloud -p target/tacocloud-0.0.19-SNAPSHOT.jar
+```
+
+The first argument to cf push is the name given to the application in Cloud Foundry. This name is used to reference the application in Cloud Foundry and the cf CLI, ==as well as used as a subdomain== at which the application is hosted. For example, if the application domain for your Cloud Foundry foundation is cf.myorg.com, then the Taco Cloud application will be available at https://tacocloud.cf.myorg.com.
+
+### 18.3 *Building container images*
+
+==Docker (https://www.docker.com/) has become the de facto standard for distributing applications of all kinds for deployment in the cloud==. Many different cloud environments, including AWS, Microsoft Azure, and Google Cloud Platform (to name a few) accept Docker containers for deploying applications.
+
+The idea of containerized applications, such as those created with Docker, draws analogies from real-world intermodal containers that are used to ship items all over the world. ==In a similar way, containerized applications share a common container format that can be deployed and run anywhere, regardless of the application inside==.
+
+The most basic way to create an image from your Spring Boot application is to use the docker build command and a Dockerfile that copies the executable JAR file from the project build into the container image. The following extremely simple Dockerfile does exactly that:
+
+```txt
+FROM openjdk:11.0.12-jre
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
+```
+
+The Dockerfile describes how the container image will be created. Because it’s so brief, let’s examine this Dockerfile line by line:
+
+* *Line 1*—Declares that the image we create will be based on a predefined container image that provides (among other things) the Open JDK 11 Java runtime.
+* *Line 2*—Creates a variable that references all JAR files in the project’s target/directory. For most Maven builds, there should be only one JAR file in there. By using a wildcard, however, we decouple the Dockerfile definition from the JAR file’s name and version. The path to the JAR file assumes that the Dockerfile is in the root of the Maven project.
+* *Line 3*—Copies the JAR file from the project’s target/ directory into the container image with a generic name of app.jar.
+* *Line 4*—Defines an entry point—that is, defines a command to run when a container created from this image starts—to run the JAR file with java -jar /app.jar.
+
+With this Dockerfile in hand, you can create the image using the Docker command-line tool like this:
+
+```txt
+docker build . -t habuma/tacocloud:0.0.19-SNAPSHOT
+```
+
+The . in this command references the relative path to the location of the Dockerfile. If you are running docker build from a different path, replace the . with the path to the Dockerfile (without the filename). For example, if you are running docker build from the parent of the project, you will use docker build like this:
+
+```txt
+docker build tacocloud -t habuma/tacocloud:0.0.19-SNAPSHOT
+```
+
+The value given after the -t argument is the ==image tag==, which is made up of a ==name and version==. In this case, the image name is habuma/tacocloud and the version is 0.0.19-SNAPSHOT. If you’d like to try it out, you can use docker run to run this newly created image:
+
+```txt
+docker run -p8080:8080 habuma/tacocloud:0.0.19-SNAPSHOT
+```
+
+The -p8080:8080 forwards requests to port 8080 on the host machine (e.g., your machine where you’re running Docker) to the container’s port 8080 (where Tomcator Netty is listening for requests).
+
+While building a Docker image this way is easy enough if you already have an executable JAR file handy, it’s not the easiest way to create an image from a Spring Boot application. Beginning with Spring Boot 2.3.0, you can build container images with out adding any special dependencies or configuration files, or editing your project in any way. That’s because the Spring Boot build plugins for both Maven and Gradle support the building of container images directly. To build your Maven-built Spring project into a container image, you use the build-image goal from the Spring Boot Maven plugin like this:
+
+```txt
+mvn spring-boot:build-image
+```
+
+Likewise, a Gradle-built project can be built into a container image like this:
+
+```txt
+gradlew bootBuildImage
+```
+
+This builds an image with a default tag based on the <artifactId> and <version> properties in the pom.xml file.
+
+Spring Boot’s build plugins rely on Docker to create images. Therefore, you’ll need to have the Docker runtime installed on the machine building the image. But once the image has been created, you can run it like this:
+
+```txt
+docker run -p8080:8080 library/tacocloud:0.0.19-SNAPSHOT
+```
+
+The default format of the tag is docker.io/library/ ${project.artifactId}:${project.version}, which explains why the tag began with “library.” That’s fine if you’ll only ever be running the image locally. But you’ll most likely want to push the image to an image registry such as DockerHub and will need the image to be built with a tag that
+
+references your image repository’s name.
+
+For example, suppose that your organization’s repository name in DockerHub is tacocloud. In that case, you’ll want the image name to be tacocloud/tacocloud:0.0.19-SNAPSHOT, effectively replacing the “library” default prefix with “tacocloud.” To make that happen, you just need to specify a build property when building the image. For Maven, you’ll specify the image name using the spring-boot.build-image.imageName JVM system property like this:
+
+```txt
+mvnw= spring-boot:build-image \
+ -Dspring-boot.build-image.imageName=tacocloud/tacocloud:0.0.19-SNAPSHOT
+```
+
+For a Gradle-built project, it’s slightly simpler. You specify the image name using an --imageName parameter like this:
+
+```txt
+gradlew bootBuildImage --imageName=tacocloud/tacocloud:0.0.19-SNAPSHOT
+```
 
 
 
+To make things even easier, you can specify the image name as part of the build itself.
+
+In Maven, you specify the image name as a configuration entry in the Spring Boot Maven Plugin. For example, the following snippet from the project’s pom.xml file shows how to specify the image name as a <configuration> block:
+
+```xml
+<plugin>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-maven-plugin</artifactId>
+  <configuration>
+    <image>
+      <name>tacocloud/${project.artifactId}:${project.version}</name>
+    </image>
+  </configuration>
+</plugin>
+```
+
+For a Gradle-built project, the following entry in build.gradle achieves the same effect:
+
+```txt
+bootBuildImage {
+ 	imageName = "habuma/${rootProject.name}:${version}"
+}
+```
+
+At this point, you can run the image with docker run as before (referencing the image by its new name) or you can use docker push to push the image to an image registry such as DockerHub, as shown here:
+
+```txt
+docker push habuma/tacocloud:0.0.19-SNAPSHOT
+```
+
+Once the image is in an image registry, it can be pulled and run from any environment that has access to that registry. 
+
+#### 18.3.1 *Deploying to Kubernetes*
+
+An increasingly common place to run images is in Kubernetes. Let’s take a look at how to run an image in Kubernetes.
+
+Kubernetes is an amazing container-orchestration platform that runs images, handles scaling containers up and down as necessary, and reconciles broken containers for increased robustness, among many other things.
+
+We’ll focus solely on the tasks required to deploy a Spring Boot application, built into a container image, into a Kubernetes cluster. For a more detailed understanding of Kubernetes, check out *Kubernetes in Action, 2nd Edition,* by Marko Lukša.
+
+You’ll need a Kubernetes environment into which to deploy your application. Several options are available, including Amazon’s AWS EKS and the Google Kubernetes Engine (GKE). For experimentation locally, you can also run Kubernetes clusters using a variety of Kubernetes implementations such as MiniKube (https://minikube.sigs.k8s.io/docs/), MicroK8s (https://microk8s.io/), and my personal favorite, Kind(https://kind.sigs.k8s.io/).
+
+The first thing you’ll need to do is create a deployment manifest. ==The deployment manifest is a YAML file that describes how an image should be deployed==. As a simple example, consider the following deployment manifest that deploys the Taco Cloud image created earlier in a Kubernetes cluster:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taco-cloud-deploy
+  labels:
+    app: taco-cloud
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: taco-cloud
+ template:
+   metadata:
+     labels:
+       app: taco-cloud
+ spec:
+   containers:
+   - name: taco-cloud-container
+     image: tacocloud/tacocloud:latest
+```
+
+This manifest can be named anything you like. But for the sake of discussion, let’s assume you named it deploy.yaml and placed it in a directory named k8s at the root of the project.
+
+Without diving into the details of how a Kubernetes deployment specification works, the key things to notice here are that our deployment is named taco-cloud-deploy and (near the bottom) is set to deploy and start a container based on the image whose name is tacocloud/tacocloud:latest. By giving “latest” as the version rather than “0.0.19-SNAPSHOT,” we can know that the very latest image pushed to the container registry will be used.
+
+Another thing to notice is that the replicas property is set to 3. This tells the Kubernetes runtime that there should be three instances of the container running. If, for any reason, one of those three instances fails, then Kubernetes will automatically reconcile the problem by starting a new instance in its place. To apply the deployment, you can use the kubectl command-line tool like this:
+
+```txt
+kubectl apply -f deploy.yaml
+```
+
+After a moment or so, you should be able to use kubectl get all to see the deployment in action, including three *pods*, each one running a container instance. Here’s a sample of what you might see:
+
+```txt
+$ kubectl get all
+NAME READY STATUS RESTARTS AGE
+pod/taco-cloud-deploy-555bd8fdb4-dln45 1/1 Running 0 20s
+pod/taco-cloud-deploy-555bd8fdb4-n455b 1/1 Running 0 20s
+pod/taco-cloud-deploy-555bd8fdb4-xp756 1/1 Running 0 20s
+
+NAME READY UP-TO-DATE AVAILABLE AGE
+deployment.apps/taco-cloud-deploy 3/3 3 3 20s
+
+NAME DESIRED CURRENT READY AGE
+replicaset.apps/taco-cloud-deploy-555bd8fdb4 3 3 3 20s
+```
+
+The first section shows three pods, one for each instance we requested in the replicas property. The middle section is the deployment resource itself. And the final section is a ReplicaSet resource, a special resource that Kubernetes uses to remember how many replicas of the application should be maintained.
+
+If you want to try out the application, you’ll need to expose a port from one of the pods on your machine. To do that, the kubectl port-forward command, shown next, comes in handy
+
+```txt
+kubectl port-forward pod/taco-cloud-deploy-555bd8fdb4-dln45 8080:8080
+```
+
+In this case, I’ve chosen the first of the three pods listed from kubectl get all and asked to forward requests from the host machine’s (the machine on which the Kubernetes cluster is running) port 8080 to the pod’s port 8080. With that in place, you should be able to point your browser at http:/ /localhost:8080 to see the Taco Cloud application running on the specified pod. 
+
+#### 18.3.2 *Enabling graceful shutdown*
+
+We have several ways in which to make Spring applications Kubernetes friendly, but the two most essential things you’ll want to do are to enable graceful shutdown as well as liveness and readiness probes.
+
+At any time, Kubernetes may decide to shut down one or more of the pods that your application is running in. If the application on that pod is in the process of handling a request, it’s poor form for the pod to immediately shut down, leaving the request unhandled. Doing so will result in an error response to the client and require that the client make the request again.
+
+Instead of burdening the client with an error, you can enable graceful shutdown in your Spring application by simply setting the server.shutdown property to "graceful". This can be done in any of the property sources discussed in chapter 6, including in application.yml like this:
+
+```yaml
+server:
+  shutdown: graceful
+```
 
 
 
+By enabling graceful shutdown, Spring will hold off on allowing the application to shut down for up to 30 seconds, allowing any in-progress requests to be handled. After all pending requests have been completed or the shutdown time-out expires, the application will be allowed to shut down.
+
+The shutdown time-out is 30 seconds by default, but you can override that by setting the spring.lifecycle.timeout-per-shutdown-phase property. For example, to change the time-out to 20 seconds, you would set the property like this:
+
+```yaml
+spring:
+  lifecycle.timeout-per-shutdown-phase: 20s
+```
+
+While the shutdown is pending, the embedded server will stop accepting new requests. This allows for all in-flight requests to be drained before shutdown occurs.
+
+Shutdown isn’t the only time when the application may not be able to handle requests. During startup, for example, an application may need a moment to be prepared to handle traffic. One of the ways that a Spring application can indicate to Kubernetes that it isn’t ready to handle traffic is with a readiness probe. Next up, we’ll take a look at how to enable liveness and readiness probes in a Spring application. 
+
+#### 18.3.3 *Working with application liveness and readiness*
+
+As we saw in chapter 15, the Actuator’s health endpoint provides a status on the health of an application. But that health is only in relation to the health of any external dependencies that the application relies on, such as a database or message broker. Even if an application is perfectly healthy with regard to its database connection, that doesn’t necessarily mean that it’s ready to handle requests or that it is even healthy enough to remain running in its current state.
+
+Kubernetes supports the notion of liveness and readiness probes: indicators of an application’s health that help Kubernetes determine whether traffic should be sent to the application, or if the application should be restarted to resolve some issue. Spring Boot supports liveness and readiness probes via the Actuator health endpoint as subsets of the health endpoint known as *health groups*.
+
+Liveness is an indicator of whether an application is healthy enough to continue running without being restarted. If an application indicates that its liveness indicator is down, then the Kubernetes runtime can react to that by terminating the pod that the application is running in and starting a new one in its place.
+
+Readiness, on the other hand, tells Kubernetes whether the application is ready to handle traffic. During startup, for instance, an application may need to perform some initialization before it can start handling requests. During this time, the application’s readiness may show that it’s down. During this time, the application is still alive, so Kubernetes won’t restart it. But Kubernetes will honor the readiness indicator by not sending requests to the application. Once the application has completed initialization, it can set the readiness probe to indicate that it is up, and Kubernetes will be able to route traffic to it.
+
+==ENABLING LIVENESS AND READINESS PROBES==
+
+To enable liveness and readiness probes in your Spring Boot application, you must set management.health.probes.enabled to true. In an application.yml file, that will look like this:
+
+```yaml
+management:
+  health:
+    probes:
+      enabled: true
+```
+
+Once the probes are enabled, a request to the Actuator health endpoint will look something like this (assuming that the application is perfectly healthy):
+
+```json
+{
+  "status": "UP",
+  "groups": [
+    "liveness",
+    "readiness"
+  ]
+}
+```
+
+On its own, the base health endpoint doesn’t tell us much about the liveness or readi ness of an application. But a request to /actuator/health/liveness or /actuator/ health/readiness will provide the liveness and readiness state of the application. In either case, an up status will look like this:
+
+```json
+{
+ "status": "UP"
+}
+```
+
+On the other hand, if either readiness or liveness is down, then the result will look like this:
+
+```json
+{
+ "status": "DOWN"
+}
+```
+
+In the case of a down readiness status, Kubernetes will not direct traffic to the application. If the liveness endpoint indicates a down status, then Kubernetes will attempt to remedy the situation by deleting the pod and starting a new instance in its place. 
 
 
 
+==CONFIGURING LIVENESS AND READINESS PROBES IN THE DEPLOYMENT==
+
+With the Actuator producing liveness and readiness status on these two endpoints, all we need to do now is tell Kubernetes about them in the deployment manifest. The tail end of the following deployment manifest shows the configuration necessary to let Kubernetes know how to check on liveness and readiness:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: taco-cloud-deploy
+  labels:
+  app: taco-cloud
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: taco-cloud
+  template:
+    metadata:
+      labels:
+        app: taco-cloud
+    spec:
+      containers:
+      - name: taco-cloud-container
+      image: tacocloud/tacocloud:latest
+      livenessProbe:
+        initialDelaySeconds: 2
+        periodSeconds: 5
+        httpGet:
+          path: /actuator/health/liveness
+          port: 8080
+      readinessProbe:
+        initialDelaySeconds: 2
+        periodSeconds: 5
+        httpGet:
+          path: /actuator/health/readiness
+          port: 8080
+```
+
+This tells Kubernetes, for each probe, to make a GET request to the given path on port 8080 to get the liveness or readiness status. As configured here, the first request should happen 2 seconds after the application pod is running and every 5 seconds thereafter. 
 
 
 
+==MANAGING LIVENESS AND READINESS==
+
+How do the liveness and readiness statuses get set? Internally, Spring itself or some library that the application depends on can set the statuses by publishing an availability change event. But that ability isn’t limited to Spring and its libraries; you can also write code in your application that publishes these events.
+
+For example, suppose that you want to delay the readiness of your application until some initialization has taken place. Early on in the application lifecycle, perhaps in an ApplicationRunner or CommandLineRunner bean, you can publish a readiness state to refuse traffic like this:
+
+```java
+	@Bean
+    public ApplicationRunner disableLiveness(ApplicationContext context) {
+        return args -> {
+            AvailabilityChangeEvent.publish(context,
+                    ReadinessState.REFUSING_TRAFFIC);
+        };
+    }
+```
+
+Here, the ApplicationRunner is given an instance of the Spring application context as a parameter to the @Bean method. This is necessary because the static publish() method needs it to publish the event. Once initialization is complete, the application’s readiness state can be updated to accept traffic in a similar way, as shown next:
+
+```java
+AvailabilityChangeEvent.publish(context, ReadinessState.ACCEPTING_TRAFFIC);
+```
 
 
 
+Liveness status can be updated in very much the same way. The key difference is  that instead of publishing ReadinessState.ACCEPTING_TRAFFIC or ReadinessState .REFUSING_TRAFFIC, you’ll publish LivenessState.CORRECT or LivenessState .BROKEN. For example, if in your application code you detect an unrecoverable fatal  error, your application can request that it be killed and restarted by publishing  Liveness.BROKEN like this:
+
+```java
+AvailabilityChangeEvent.publish(context, LivenessState.BROKEN);
+```
+
+Shortly after this event is published, the liveness endpoint will indicate that the application is down, and Kubernetes will take action by restarting the application. This gives you very little time to publish a LivenessState.CORRECT event. But if you determine that, in fact, the application is healthy after all, then you can undo the broken event by publishing a new event like this:
+
+```java
+AvailabilityChangeEvent.publish(context, LivenessState.CORRECT);
+```
+
+如果你的应用程序在 liveness 探测期间没有被 Kubernetes 检测到失败，并且你的应用程序认为自己是 "broken" 状态，它仍然会继续处理请求，不会被 Kubernetes 重启
+
+### 18.4 *Building and deploying WAR files*
+
+Thanks in large part to Spring Boot autoconfiguration, you’ve been spared from having to create a web.xml file or servlet initializer class to declare Spring’s DispatcherServlet for Spring MVC. But if you’re going to deploy the application to a Java application server, you’re going to need to build a WAR file. And, so that the application server will know how to run the application, you’ll also need to include a servlet initializer in that WAR file to play the part of a web.xml file and declare DispatcherServlet.
+
+As it turns out, building a Spring Boot application into a WAR file isn’t all that difficult. In fact, if you chose the WAR option when creating the application through the Initializr, then there’s nothing more you need to do.
+
+The Initializr ensures that the generated project will contain a servlet initializer class, and the build file will be geared to produce a WAR file. If, however, you chose to build a JAR file from the Initializr (or if you’re curious as to what the pertinent differences are), then read on.
+
+First, you’ll need a way to configure Spring’s DispatcherServlet. Although this could be done with a web.xml file, Spring Boot makes this even easier with SpringBootServletInitializr. SpringBootServletInitializer is a special Spring Boot–aware implementation of Spring’s WebApplicationInitializer. Aside from configuring Spring’s DispatcherServlet, SpringBootServletInitializer also looks for any beans in the Spring application context that are of type Filter, Servlet, or ServletContextInitializer and binds them to the servlet container.
+
+To use SpringBootServletInitializer, create a subclass and override the configure() method to specify the Spring configuration class. The next code listing shows TacoCloudServletInitializer, a subclass of SpringBootServletInitializer that you’ll use for the Taco Cloud application.
+
+```java
+package tacos;
+
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.context.web.SpringBootServletInitializer;
+
+public class TacoCloudServletInitializer
+ 	extends SpringBootServletInitializer {
+ 	@Override
+ 	protected SpringApplicationBuilder configure(
+ 						SpringApplicationBuilder builder) {
+ 		return builder.sources(TacoCloudApplication.class);
+ 	}
+}
+```
 
 
 
+As you can see, the configure() method is given a SpringApplicationBuilder as a  parameter and returns it as a result. In between, it calls the sources() method that registers Spring configuration classes. In this case, it registers only the TacoCloudApplication class, which serves the dual purpose of a bootstrap class (for executable JARs) and a Spring configuration class.
+
+Even though the application has other Spring configuration classes, it’s not necessary to register them all with the sources() method. The TacoCloudApplication class, annotated with @SpringBootApplication, implicitly enables component scanning. Component scanning discovers and pulls in any other configuration classes that it finds.
+
+For the most part, SpringBootServletInitializer’s subclass is boilerplate. It references the application’s main configuration class. But aside from that, it’ll be the same for every application where you’ll be building a WAR file. And you’ll almost never need to make any changes to it.
+
+Now that you’ve written a servlet initializer class, you must make a few small changes to the project build. If you’re building with Maven, the change required is as simple as ensuring that the <packaging> element in pom.xml is set to war, as shown here:
+
+```xml
+<packaging>war</packaging>
+```
+
+The changes required for a Gradle build are similarly straightforward. You must apply the war plugin in the build.gradle file as follows:
+
+```java
+apply plugin: 'war'
+```
+
+Now you’re ready to build the application. With Maven, you’ll use the Maven script that the Initializr used to execute the package goal like so:
+
+```java
+mvn package
+```
+
+If the build is successful, then the WAR file can be found in the target directory. On the other hand, if you were using Gradle to build the project, you’d use the Gradle wrapper to execute the build task as follows:
+
+```java
+gradlew build
+```
+
+Once the build completes, the WAR file will be in the build/libs directory. All that’s left is to deploy the application. The deployment procedure varies across application servers, so consult the documentation for your application server’s specific deployment procedure.
+
+It may be interesting to note that although you’ve built a WAR file suitable for deployment to any Servlet 3.0 (or higher) servlet container, the WAR file can still be executed at the command line as if it were an executable JAR file as follows:
+
+```java
+java -jar target/taco-cloud-0.0.19-SNAPSHOT.war
+```
 
 
 
+### 18.5 *Summary*
 
-
-
-
-
+* Spring applications can be deployed in a number of different environments, including traditional application servers and PaaS environments like Cloud Foundry, or as Docker containers.
+* Building as an executable JAR file allows a Spring Boot application to be deployed to several cloud platforms without the overhead of a WAR file.
+* When building a WAR file, you should include a class that subclasses SpringBootServletInitializr to ensure that Spring’s DispatcherServlet is properly configured.
+* Containerizing Spring applications is as simple as using the Spring Boot build plugin’s support for building images. These images can then be deployed anywhere Docker containers can be deployed, including in Kubernetes clusters.
 
 
 
